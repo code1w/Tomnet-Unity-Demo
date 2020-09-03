@@ -2,3 +2,6 @@
 .git
 build
 bin
+obj
+*.csproj
+*.sln

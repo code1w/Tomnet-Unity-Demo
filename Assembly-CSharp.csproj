@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BDC43B11-C8D9-4D7E-5864-77ADAD833C10}</ProjectGuid>
+    <ProjectGuid>{0DC34F89-5023-B68B-2A55-ADC6648CB303}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -294,6 +294,9 @@
     <Compile Include="Assets\Scripts\Tomnet\Tom.MMO\MMORoomSettings.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.MMO\SetMMOItemVariables.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.MMO\SetUserPositionRequest.cs" />
+    <Compile Include="Assets\Scripts\Tomnet\Tom.Protobuf\PacketBuilder.cs" />
+    <Compile Include="Assets\Scripts\Tomnet\Tom.Protobuf\PacketParser.cs" />
+    <Compile Include="Assets\Scripts\Tomnet\Tom.Protobuf\ProtobufUtility.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.Protocol\IProtocolCodec.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.Requests\AdminMessageRequest.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.Requests\BanMode.cs" />
@@ -457,19 +460,19 @@
     <Compile Include="Assets\Scripts\Tomnet\WebSocketSharp\WebSocketFrame.cs" />
     <Compile Include="Assets\Scripts\Tomnet\WebSocketSharp\WebSocketState.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>E:/zxb/code/TomnetMMoDemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>E:/zxb/code/github/Tomnet-Unity-Demo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>E:/zxb/code/TomnetMMoDemo/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>E:/zxb/code/github/Tomnet-Unity-Demo/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>E:/zxb/code/TomnetMMoDemo/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>E:/zxb/code/github/Tomnet-Unity-Demo/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>E:/zxb/code/TomnetMMoDemo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>E:/zxb/code/github/Tomnet-Unity-Demo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>E:/zxb/code/TomnetMMoDemo/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>E:/zxb/code/github/Tomnet-Unity-Demo/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unity(2018.4.26)/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -673,7 +676,7 @@
       <HintPath>D:/Program Files/Unity(2018.4.26)/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>E:/zxb/code/TomnetMMoDemo/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>E:/zxb/code/github/Tomnet-Unity-Demo/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Program Files/Unity(2018.4.26)/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
