@@ -25,7 +25,7 @@ public class ConnectionUI : MonoBehaviour {
 	public string Host = "127.0.0.1";
 	
 	[Tooltip("TCP port listened by the SmartFoxServer 2X instance; used for regular socket connection in all builds except WebGL")]
-	public int TcpPort = 9933;
+	public int TcpPort = 8888;
 	
 	[Tooltip("WebSocket port listened by the SmartFoxServer 2X instance; used for in WebGL build only")]
 	public int WSPort = 8080;

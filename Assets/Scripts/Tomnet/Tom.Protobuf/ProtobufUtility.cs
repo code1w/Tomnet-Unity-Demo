@@ -10,71 +10,85 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Google.Protobuf;
+using Google.Protobuf.Reflection;
+using System.Reflection;
+using System.Linq;
 
-    public class ProtobufUtility {
+namespace Tom
+{
+    public class ProtobufUtility
+    {
+        //private Dictionary<string,System.Type> mProtobufType = new Dictionary<string, System.Type>();
+        private Dictionary<string, MessageDescriptor> mProtobufType = new Dictionary<string, MessageDescriptor>();
 
-        private Dictionary<string,System.Type> mProtobufType = new Dictionary<string, System.Type>();
-
-
-        public ProtobufUtility() {
-            InitProtobufTypes( this.GetType().Assembly );
+        public ProtobufUtility()
+        {
+            //InitProtobufTypes( this.GetType().Assembly );
         }
 
-
-        /// <summary>
-        /// 将 Protobuf 消息类打包成二进制数据流
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public byte[] Serialize( object data ) {
-            byte[] buffer = null;
-            using ( MemoryStream m = new MemoryStream() ) {
-                Serializer.Serialize( m, data );
-                m.Position = 0;
-                int len = (int)m.Length;
-                buffer = new byte[len];
-                m.Read( buffer, 0, len );
+        /*
+            public byte[] Serialize( object data ) {
+                byte[] buffer = null;
+                using ( MemoryStream m = new MemoryStream() ) {
+                    //Serializer.Serialize( m, data );
+                    m.Position = 0;
+                    int len = (int)m.Length;
+                    buffer = new byte[len];
+                    m.Read( buffer, 0, len );
+                }
+                return buffer;
             }
-            return buffer;
+        */
+        public byte[] Serialize(Google.Protobuf.IMessage msg)
+        {
+            using (MemoryStream sndms = new MemoryStream())
+            {
+                Google.Protobuf.CodedOutputStream cos = new Google.Protobuf.CodedOutputStream(sndms);
+                cos.WriteMessage(msg);
+                cos.Flush();
+                //return sndms.ToArray();
+                return msg.ToByteArray();
+
+            }
         }
-
-
-        /// <summary>
-        /// 解析 Protobuf 二进制数据流，返回 object (需要根据不同的消息类型回调以注册的处理函数)
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="messageName"></param>
-        /// <returns></returns>
-        public object Deserialize( byte[] data, string messageName ) {
-            System.Type type = GetTypeByName( messageName );
-            using ( MemoryStream m = new MemoryStream( data ) ) {
-                return ProtoBuf.Meta.RuntimeTypeModel.Default.Deserialize( m, null, type );
+        public Google.Protobuf.IMessage Deserialize(byte[] data, string messageName)
+        {
+            var typ = Assembly.GetExecutingAssembly().GetTypes().First(t => t.Name == messageName);
+            var descriptor = (MessageDescriptor)typ.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                ms.Write(data, 0, data.Length);
+                ms.Seek(0, SeekOrigin.Begin);
+                var msg = descriptor.Parser.ParseFrom(ms); // parse the byte array to Person
+                return msg;
             }
         }
 
+        public string MessageName(Google.Protobuf.IMessage msg)
+        {
+            var descriptor = msg.Descriptor;
+            return descriptor.FullName;
+        }
 
-        /// <summary>
-        /// 遍历所有的 protobuf 消息类，将类型及类名存入字典
-        /// </summary>
-        /// <param name="assembly"></param>
-        private void InitProtobufTypes( System.Reflection.Assembly assembly ) {
-            foreach ( System.Type t in assembly.GetTypes() ) {
-                ProtoBuf.ProtoContractAttribute[] pc = (ProtoBuf.ProtoContractAttribute[])t.GetCustomAttributes( typeof( ProtoBuf.ProtoContractAttribute ), false );
-                if ( pc.Length > 0 ) {
-                    mProtobufType.Add( t.Name, t );
+        private void InitProtobufTypes(System.Reflection.Assembly assembly)
+        {
+            foreach (System.Type t in assembly.GetTypes())
+            {
+                var descriptor = (MessageDescriptor)t.GetProperty("Descriptor", BindingFlags.Public | BindingFlags.Static).GetValue(null, null);
+                if (descriptor != null)
+                {
+                    mProtobufType.Add(t.Name, descriptor);
                 }
             }
         }
 
-
-        /// <summary>
-        /// 通过 protobuf 消息名，获取消息类型
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public System.Type GetTypeByName( string name ) {
+        public MessageDescriptor GetTypeByName(string name)
+        {
             return mProtobufType[name];
         }
+
+    }
+
     /*
      * 
 using System;
