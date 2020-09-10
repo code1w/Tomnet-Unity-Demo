@@ -10,11 +10,6 @@ using Google.Protobuf.Reflection;
 using System.Net;
 namespace Tom {
     public class PacketBuilder {
-
-<<<<<<< HEAD
-=======
-        private ProtobufUtility protobuf = new ProtobufUtility();
->>>>>>> 7848d5004388ba039247ab43f8121ebbfcd4871c
         public byte[] ProtobufPacket(Google.Protobuf.IMessage message)
         {
             int writeIndex = 0;
