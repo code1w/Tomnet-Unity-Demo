@@ -1,8 +1,8 @@
 namespace WebSocketSharp
 {
-	public enum ByteOrder
-	{
-		Little,
-		Big
-	}
+    public enum ByteOrder
+    {
+        Little,
+        Big
+    }
 }

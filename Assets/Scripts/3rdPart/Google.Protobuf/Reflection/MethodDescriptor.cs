@@ -126,15 +126,14 @@ namespace Google.Protobuf.Reflection
             {
                 throw new DescriptorValidationException(this, "\"" + Proto.InputType + "\" is not a message type.");
             }
-            inputType = (MessageDescriptor) lookup;
+            inputType = (MessageDescriptor)lookup;
 
             lookup = File.DescriptorPool.LookupSymbol(Proto.OutputType, this);
             if (!(lookup is MessageDescriptor))
             {
                 throw new DescriptorValidationException(this, "\"" + Proto.OutputType + "\" is not a message type.");
             }
-            outputType = (MessageDescriptor) lookup;
+            outputType = (MessageDescriptor)lookup;
         }
     }
 }
- 

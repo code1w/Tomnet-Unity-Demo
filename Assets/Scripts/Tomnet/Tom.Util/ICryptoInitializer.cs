@@ -1,7 +1,7 @@
 namespace Tom.Util
 {
-	public interface ICryptoInitializer
-	{
-		void Run();
-	}
+    public interface ICryptoInitializer
+    {
+        void Run();
+    }
 }

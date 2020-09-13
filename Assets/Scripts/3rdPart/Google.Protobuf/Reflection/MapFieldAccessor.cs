@@ -47,7 +47,7 @@ namespace Google.Protobuf.Reflection
 
         public override void Clear(IMessage message)
         {
-            IDictionary list = (IDictionary) GetValue(message);
+            IDictionary list = (IDictionary)GetValue(message);
             list.Clear();
         }
 

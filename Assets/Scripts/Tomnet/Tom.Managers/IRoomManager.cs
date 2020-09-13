@@ -2,64 +2,64 @@ using System.Collections.Generic;
 
 namespace Tom.Entities.Managers
 {
-	public interface IRoomManager
-	{
-		string OwnerZone
-		{
-			get;
-		}
+    public interface IRoomManager
+    {
+        string OwnerZone
+        {
+            get;
+        }
 
-		TomOrange SmartFoxClient
-		{
-			get;
-		}
+        TomOrange SmartFoxClient
+        {
+            get;
+        }
 
-		void AddRoom(Room room, bool addGroupIfMissing);
+        void AddRoom(Room room, bool addGroupIfMissing);
 
-		void AddRoom(Room room);
+        void AddRoom(Room room);
 
-		void AddGroup(string groupId);
+        void AddGroup(string groupId);
 
-		Room ReplaceRoom(Room room, bool addToGroupIfMissing);
+        Room ReplaceRoom(Room room, bool addToGroupIfMissing);
 
-		Room ReplaceRoom(Room room);
+        Room ReplaceRoom(Room room);
 
-		void RemoveGroup(string groupId);
+        void RemoveGroup(string groupId);
 
-		bool ContainsGroup(string groupId);
+        bool ContainsGroup(string groupId);
 
-		bool ContainsRoom(object idOrName);
+        bool ContainsRoom(object idOrName);
 
-		bool ContainsRoomInGroup(object idOrName, string groupId);
+        bool ContainsRoomInGroup(object idOrName, string groupId);
 
-		void ChangeRoomName(Room room, string newName);
+        void ChangeRoomName(Room room, string newName);
 
-		void ChangeRoomPasswordState(Room room, bool isPassProtected);
+        void ChangeRoomPasswordState(Room room, bool isPassProtected);
 
-		void ChangeRoomCapacity(Room room, int maxUsers, int maxSpect);
+        void ChangeRoomCapacity(Room room, int maxUsers, int maxSpect);
 
-		Room GetRoomById(int id);
+        Room GetRoomById(int id);
 
-		Room GetRoomByName(string name);
+        Room GetRoomByName(string name);
 
-		List<Room> GetRoomList();
+        List<Room> GetRoomList();
 
-		int GetRoomCount();
+        int GetRoomCount();
 
-		List<string> GetRoomGroups();
+        List<string> GetRoomGroups();
 
-		List<Room> GetRoomListFromGroup(string groupId);
+        List<Room> GetRoomListFromGroup(string groupId);
 
-		List<Room> GetJoinedRooms();
+        List<Room> GetJoinedRooms();
 
-		List<Room> GetUserRooms(User user);
+        List<Room> GetUserRooms(User user);
 
-		void RemoveRoom(Room room);
+        void RemoveRoom(Room room);
 
-		void RemoveRoomById(int id);
+        void RemoveRoomById(int id);
 
-		void RemoveRoomByName(string name);
+        void RemoveRoomByName(string name);
 
-		void RemoveUser(User user);
-	}
+        void RemoveUser(User user);
+    }
 }

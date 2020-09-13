@@ -1,4 +1,4 @@
 namespace SFSLitJson
 {
-	public delegate IJsonWrapper WrapperFactory();
+    public delegate IJsonWrapper WrapperFactory();
 }

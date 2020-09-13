@@ -296,6 +296,7 @@
     <Compile Include="Assets\Scripts\Tomnet\Tom.MMO\SetUserPositionRequest.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.Protobuf\PacketBuilder.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.Protobuf\PacketParser.cs" />
+    <Compile Include="Assets\Scripts\Tomnet\Tom.Protobuf\ProtoBufPackageHeader.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.Protobuf\ProtobufUtility.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.Protocol\IProtocolCodec.cs" />
     <Compile Include="Assets\Scripts\Tomnet\Tom.Requests\AdminMessageRequest.cs" />

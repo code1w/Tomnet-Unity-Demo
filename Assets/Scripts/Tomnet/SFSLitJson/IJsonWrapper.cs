@@ -3,69 +3,69 @@ using System.Collections.Specialized;
 
 namespace SFSLitJson
 {
-	public interface IJsonWrapper : IList, ICollection, IEnumerable, IOrderedDictionary, IDictionary
-	{
-		bool IsArray
-		{
-			get;
-		}
+    public interface IJsonWrapper : IList, ICollection, IEnumerable, IOrderedDictionary, IDictionary
+    {
+        bool IsArray
+        {
+            get;
+        }
 
-		bool IsBoolean
-		{
-			get;
-		}
+        bool IsBoolean
+        {
+            get;
+        }
 
-		bool IsDouble
-		{
-			get;
-		}
+        bool IsDouble
+        {
+            get;
+        }
 
-		bool IsInt
-		{
-			get;
-		}
+        bool IsInt
+        {
+            get;
+        }
 
-		bool IsLong
-		{
-			get;
-		}
+        bool IsLong
+        {
+            get;
+        }
 
-		bool IsObject
-		{
-			get;
-		}
+        bool IsObject
+        {
+            get;
+        }
 
-		bool IsString
-		{
-			get;
-		}
+        bool IsString
+        {
+            get;
+        }
 
-		bool GetBoolean();
+        bool GetBoolean();
 
-		double GetDouble();
+        double GetDouble();
 
-		int GetInt();
+        int GetInt();
 
-		JsonType GetJsonType();
+        JsonType GetJsonType();
 
-		long GetLong();
+        long GetLong();
 
-		string GetString();
+        string GetString();
 
-		void SetBoolean(bool val);
+        void SetBoolean(bool val);
 
-		void SetDouble(double val);
+        void SetDouble(double val);
 
-		void SetInt(int val);
+        void SetInt(int val);
 
-		void SetJsonType(JsonType type);
+        void SetJsonType(JsonType type);
 
-		void SetLong(long val);
+        void SetLong(long val);
 
-		void SetString(string val);
+        void SetString(string val);
 
-		string ToJson();
+        string ToJson();
 
-		void ToJson(JsonWriter writer);
-	}
+        void ToJson(JsonWriter writer);
+    }
 }

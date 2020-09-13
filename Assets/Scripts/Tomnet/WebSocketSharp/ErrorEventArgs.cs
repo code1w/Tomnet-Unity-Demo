@@ -2,25 +2,25 @@ using System;
 
 namespace WebSocketSharp
 {
-	public class ErrorEventArgs : EventArgs
-	{
-		private Exception _exception;
+    public class ErrorEventArgs : EventArgs
+    {
+        private Exception _exception;
 
-		private string _message;
+        private string _message;
 
-		public Exception Exception => _exception;
+        public Exception Exception => _exception;
 
-		public string Message => _message;
+        public string Message => _message;
 
-		internal ErrorEventArgs(string message)
-			: this(message, null)
-		{
-		}
+        internal ErrorEventArgs(string message)
+            : this(message, null)
+        {
+        }
 
-		internal ErrorEventArgs(string message, Exception exception)
-		{
-			_message = message;
-			_exception = exception;
-		}
-	}
+        internal ErrorEventArgs(string message, Exception exception)
+        {
+            _message = message;
+            _exception = exception;
+        }
+    }
 }

@@ -652,7 +652,7 @@ namespace Google.Protobuf.Collections
                         {
                             Value = codec.valueCodec.Read(input);
                         }
-                        else 
+                        else
                         {
                             input.SkipLastField();
                         }

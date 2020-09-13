@@ -1,8 +1,8 @@
 namespace WebSocketSharp
 {
-	internal enum Fin : byte
-	{
-		More,
-		Final
-	}
+    internal enum Fin : byte
+    {
+        More,
+        Final
+    }
 }

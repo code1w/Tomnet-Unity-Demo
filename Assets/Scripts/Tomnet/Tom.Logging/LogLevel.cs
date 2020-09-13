@@ -1,10 +1,10 @@
 namespace Tom.Logging
 {
-	public enum LogLevel
-	{
-		DEBUG = 100,
-		INFO = 200,
-		WARN = 300,
-		ERROR = 400
-	}
+    public enum LogLevel
+    {
+        DEBUG = 100,
+        INFO = 200,
+        WARN = 300,
+        ERROR = 400
+    }
 }

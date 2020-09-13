@@ -1,4 +1,4 @@
 namespace Tom.Core.Sockets
 {
-	public delegate void ConnectionDelegate();
+    public delegate void ConnectionDelegate();
 }

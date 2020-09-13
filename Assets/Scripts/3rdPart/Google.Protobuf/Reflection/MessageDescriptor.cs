@@ -138,11 +138,11 @@ namespace Google.Protobuf.Reflection
             switch (fieldNumber)
             {
                 case DescriptorProto.FieldFieldNumber:
-                    return (IReadOnlyList<DescriptorBase>) fieldsInDeclarationOrder;
+                    return (IReadOnlyList<DescriptorBase>)fieldsInDeclarationOrder;
                 case DescriptorProto.NestedTypeFieldNumber:
-                    return (IReadOnlyList<DescriptorBase>) NestedTypes;
+                    return (IReadOnlyList<DescriptorBase>)NestedTypes;
                 case DescriptorProto.EnumTypeFieldNumber:
-                    return (IReadOnlyList<DescriptorBase>) EnumTypes;
+                    return (IReadOnlyList<DescriptorBase>)EnumTypes;
                 default:
                     return null;
             }
@@ -281,7 +281,7 @@ namespace Google.Protobuf.Reflection
         /// </summary>
         /// <param name="name">The unqualified name of the descriptor, e.g. "Foo"</param>
         /// <returns>The descriptor, or null if not found.</returns>
-        public T FindDescriptor<T>(string name)  where T : class, IDescriptor =>
+        public T FindDescriptor<T>(string name) where T : class, IDescriptor =>
             File.DescriptorPool.FindSymbol<T>(FullName + "." + name);
 
         /// <summary>

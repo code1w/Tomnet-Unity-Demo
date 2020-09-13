@@ -1,6 +1,6 @@
 namespace Tom.Protocol.Serialization
 {
-	public interface SerializableSFSType
-	{
-	}
+    public interface SerializableSFSType
+    {
+    }
 }

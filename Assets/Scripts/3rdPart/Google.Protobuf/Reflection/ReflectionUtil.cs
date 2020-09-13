@@ -132,7 +132,7 @@ namespace Google.Protobuf.Reflection
         /// an object is pretty cheap.
         /// </summary>
         private static IReflectionHelper GetReflectionHelper(Type t1, Type t2) =>
-            (IReflectionHelper) Activator.CreateInstance(typeof(ReflectionHelper<,>).MakeGenericType(t1, t2));
+            (IReflectionHelper)Activator.CreateInstance(typeof(ReflectionHelper<,>).MakeGenericType(t1, t2));
 
         // Non-generic interface allowing us to use an instance of ReflectionHelper<T1, T2> without statically
         // knowing the types involved.
@@ -167,35 +167,35 @@ namespace Google.Protobuf.Reflection
                 // an enum based on an int. That's the fast path.
                 if (CanConvertEnumFuncToInt32Func)
                 {
-                    var del = (Func<T1, int>) method.CreateDelegate(typeof(Func<T1, int>));
-                    return message => del((T1) message);
+                    var del = (Func<T1, int>)method.CreateDelegate(typeof(Func<T1, int>));
+                    return message => del((T1)message);
                 }
                 else
                 {
                     // On some runtimes (e.g. old Mono) the return type has to be exactly correct,
                     // so we go via boxing. Reflection is already fairly inefficient, and this is
                     // only used for one-of case checking, fortunately.
-                    var del = (Func<T1, T2>) method.CreateDelegate(typeof(Func<T1, T2>));
-                    return message => (int) (object) del((T1) message);
+                    var del = (Func<T1, T2>)method.CreateDelegate(typeof(Func<T1, T2>));
+                    return message => (int)(object)del((T1)message);
                 }
             }
 
             public Action<IMessage> CreateActionIMessage(MethodInfo method)
             {
-                var del = (Action<T1>) method.CreateDelegate(typeof(Action<T1>));
-                return message => del((T1) message);
+                var del = (Action<T1>)method.CreateDelegate(typeof(Action<T1>));
+                return message => del((T1)message);
             }
 
             public Func<IMessage, object> CreateFuncIMessageObject(MethodInfo method)
             {
-                var del = (Func<T1, T2>) method.CreateDelegate(typeof(Func<T1, T2>));
-                return message => del((T1) message);
+                var del = (Func<T1, T2>)method.CreateDelegate(typeof(Func<T1, T2>));
+                return message => del((T1)message);
             }
 
             public Action<IMessage, object> CreateActionIMessageObject(MethodInfo method)
             {
-                var del = (Action<T1, T2>) method.CreateDelegate(typeof(Action<T1, T2>));
-                return (message, arg) => del((T1) message, (T2) arg);
+                var del = (Action<T1, T2>)method.CreateDelegate(typeof(Action<T1, T2>));
+                return (message, arg) => del((T1)message, (T2)arg);
             }
 
             public Func<IMessage, bool> CreateFuncIMessageBool(MethodInfo method)
@@ -323,7 +323,8 @@ namespace Google.Protobuf.Reflection
                         .GetTypeInfo()
                         .GetDeclaredMethod("IsInitialized")
                         .CreateDelegate(typeof(Func<ExtensionSet<T1>, bool>));
-                return (m) => {
+                return (m) =>
+                {
                     var set = getFunc((T1)m);
                     return set == null || initializedFunc(set);
                 };

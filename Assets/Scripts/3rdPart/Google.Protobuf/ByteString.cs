@@ -125,7 +125,7 @@ namespace Google.Protobuf
         /// <returns>A byte array with the same data as this <c>ByteString</c>.</returns>
         public byte[] ToByteArray()
         {
-            return (byte[]) bytes.Clone();
+            return (byte[])bytes.Clone();
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace Google.Protobuf
         public static ByteString FromStream(Stream stream)
         {
             ProtoPreconditions.CheckNotNull(stream, nameof(stream));
-            int capacity = stream.CanSeek ? checked((int) (stream.Length - stream.Position)) : 0;
+            int capacity = stream.CanSeek ? checked((int)(stream.Length - stream.Position)) : 0;
             var memoryStream = new MemoryStream(capacity);
             stream.CopyTo(memoryStream);
 #if NETSTANDARD1_0 || NETSTANDARD2_0
@@ -181,7 +181,7 @@ namespace Google.Protobuf
         public async static Task<ByteString> FromStreamAsync(Stream stream, CancellationToken cancellationToken = default(CancellationToken))
         {
             ProtoPreconditions.CheckNotNull(stream, nameof(stream));
-            int capacity = stream.CanSeek ? checked((int) (stream.Length - stream.Position)) : 0;
+            int capacity = stream.CanSeek ? checked((int)(stream.Length - stream.Position)) : 0;
             var memoryStream = new MemoryStream(capacity);
             // We have to specify the buffer size here, as there's no overload accepting the cancellation token
             // alone. But it's documented to use 81920 by default if not specified.
@@ -205,7 +205,7 @@ namespace Google.Protobuf
         /// </summary>
         public static ByteString CopyFrom(params byte[] bytes)
         {
-            return new ByteString((byte[]) bytes.Clone());
+            return new ByteString((byte[])bytes.Clone());
         }
 
         /// <summary>
@@ -288,7 +288,7 @@ namespace Google.Protobuf
         /// <returns>An iterator over the bytes in this object.</returns>
         public IEnumerator<byte> GetEnumerator()
         {
-            return ((IEnumerable<byte>) bytes).GetEnumerator();
+            return ((IEnumerable<byte>)bytes).GetEnumerator();
         }
 
         /// <summary>

@@ -2,26 +2,26 @@ using Tom.Util;
 
 namespace Tom.Bitswarm
 {
-	public interface IUDPManager
-	{
-		bool Inited
-		{
-			get;
-		}
+    public interface IUDPManager
+    {
+        bool Inited
+        {
+            get;
+        }
 
-		long NextUdpPacketId
-		{
-			get;
-		}
+        long NextUdpPacketId
+        {
+            get;
+        }
 
-		void Initialize(string udpAddr, int udpPort);
+        void Initialize(string udpAddr, int udpPort);
 
-		void Send(ByteArray binaryData);
+        void Send(ByteArray binaryData);
 
-		void Reset();
+        void Reset();
 
-		void Disconnect();
+        void Disconnect();
 
-		bool isConnected();
-	}
+        bool isConnected();
+    }
 }

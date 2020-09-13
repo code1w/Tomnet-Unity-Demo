@@ -77,7 +77,7 @@ namespace Google.Protobuf.Reflection
         /// <returns>A type registry for the given files.</returns>
         public static TypeRegistry FromFiles(params FileDescriptor[] fileDescriptors)
         {
-            return FromFiles((IEnumerable<FileDescriptor>) fileDescriptors);
+            return FromFiles((IEnumerable<FileDescriptor>)fileDescriptors);
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Google.Protobuf.Reflection
         /// <returns>A type registry for the given files.</returns>
         public static TypeRegistry FromMessages(params MessageDescriptor[] messageDescriptors)
         {
-            return FromMessages((IEnumerable<MessageDescriptor>) messageDescriptors);
+            return FromMessages((IEnumerable<MessageDescriptor>)messageDescriptors);
         }
 
         /// <summary>

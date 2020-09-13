@@ -49,10 +49,10 @@ namespace Google.Protobuf.Collections
         /// <returns>The equality comparer.</returns>
         public static EqualityComparer<T> GetEqualityComparer<T>()
         {
-            return typeof(T) == typeof(double) ? (EqualityComparer<T>) (object) BitwiseDoubleEqualityComparer
-                : typeof(T) == typeof(float) ? (EqualityComparer<T>) (object) BitwiseSingleEqualityComparer
-                : typeof(T) == typeof(double?) ? (EqualityComparer<T>) (object) BitwiseNullableDoubleEqualityComparer
-                : typeof(T) == typeof(float?) ? (EqualityComparer<T>) (object) BitwiseNullableSingleEqualityComparer
+            return typeof(T) == typeof(double) ? (EqualityComparer<T>)(object)BitwiseDoubleEqualityComparer
+                : typeof(T) == typeof(float) ? (EqualityComparer<T>)(object)BitwiseSingleEqualityComparer
+                : typeof(T) == typeof(double?) ? (EqualityComparer<T>)(object)BitwiseNullableDoubleEqualityComparer
+                : typeof(T) == typeof(float?) ? (EqualityComparer<T>)(object)BitwiseNullableSingleEqualityComparer
                 : EqualityComparer<T>.Default;
         }
 

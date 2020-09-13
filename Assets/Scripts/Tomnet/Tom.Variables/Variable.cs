@@ -2,37 +2,37 @@ using Tom.Entities.Data;
 
 namespace Tom.Entities.Variables
 {
-	public interface Variable
-	{
-		string Name
-		{
-			get;
-		}
+    public interface Variable
+    {
+        string Name
+        {
+            get;
+        }
 
-		VariableType Type
-		{
-			get;
-		}
+        VariableType Type
+        {
+            get;
+        }
 
-		object Value
-		{
-			get;
-		}
+        object Value
+        {
+            get;
+        }
 
-		bool GetBoolValue();
+        bool GetBoolValue();
 
-		int GetIntValue();
+        int GetIntValue();
 
-		double GetDoubleValue();
+        double GetDoubleValue();
 
-		string GetStringValue();
+        string GetStringValue();
 
-		ISFSObject GetSFSObjectValue();
+        ISFSObject GetSFSObjectValue();
 
-		ISFSArray GetSFSArrayValue();
+        ISFSArray GetSFSArrayValue();
 
-		bool IsNull();
+        bool IsNull();
 
-		ISFSArray ToSFSArray();
-	}
+        ISFSArray ToSFSArray();
+    }
 }

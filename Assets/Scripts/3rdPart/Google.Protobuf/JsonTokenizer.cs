@@ -330,7 +330,7 @@ namespace Google.Protobuf
                     char c = reader.ReadOrFail("Unexpected end of text while reading string");
                     if (c < ' ')
                     {
-                        throw reader.CreateException(string.Format(CultureInfo.InvariantCulture, "Invalid character in string literal: U+{0:x4}", (int) c));
+                        throw reader.CreateException(string.Format(CultureInfo.InvariantCulture, "Invalid character in string literal: U+{0:x4}", (int)c));
                     }
                     if (c == '"')
                     {
@@ -383,7 +383,7 @@ namespace Google.Protobuf
                     case 'u':
                         return ReadUnicodeEscape();
                     default:
-                        throw reader.CreateException(string.Format(CultureInfo.InvariantCulture, "Invalid character in character escape sequence: U+{0:x4}", (int) c));
+                        throw reader.CreateException(string.Format(CultureInfo.InvariantCulture, "Invalid character in character escape sequence: U+{0:x4}", (int)c));
                 }
             }
 
@@ -411,11 +411,11 @@ namespace Google.Protobuf
                     }
                     else
                     {
-                        throw reader.CreateException(string.Format(CultureInfo.InvariantCulture, "Invalid character in character escape sequence: U+{0:x4}", (int) c));
+                        throw reader.CreateException(string.Format(CultureInfo.InvariantCulture, "Invalid character in character escape sequence: U+{0:x4}", (int)c));
                     }
                     result = (result << 4) + nybble;
                 }
-                return (char) result;
+                return (char)result;
             }
 
             /// <summary>
@@ -730,7 +730,7 @@ namespace Google.Protobuf
                         return tmp;
                     }
                     int next = reader.Read();
-                    return next == -1 ? null : (char?) next;
+                    return next == -1 ? null : (char?)next;
                 }
 
                 internal char ReadOrFail(string messageOnFailure)

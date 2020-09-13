@@ -1,19 +1,19 @@
 namespace Tom.Util
 {
-	public class CryptoKey
-	{
-		private ByteArray iv;
+    public class CryptoKey
+    {
+        private ByteArray iv;
 
-		private ByteArray key;
+        private ByteArray key;
 
-		public ByteArray IV => iv;
+        public ByteArray IV => iv;
 
-		public ByteArray Key => key;
+        public ByteArray Key => key;
 
-		public CryptoKey(ByteArray iv, ByteArray key)
-		{
-			this.iv = iv;
-			this.key = key;
-		}
-	}
+        public CryptoKey(ByteArray iv, ByteArray key)
+        {
+            this.iv = iv;
+            this.key = key;
+        }
+    }
 }

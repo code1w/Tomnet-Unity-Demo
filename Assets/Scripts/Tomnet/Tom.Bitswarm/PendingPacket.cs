@@ -3,31 +3,31 @@ using Tom.Util;
 
 namespace Tom.Bitswarm
 {
-	public class PendingPacket
-	{
-		private PacketHeader header;
+    public class PendingPacket
+    {
+        private PacketHeader header;
 
-		private ByteArray buffer;
+        private ByteArray buffer;
 
-		public PacketHeader Header => header;
+        public PacketHeader Header => header;
 
-		public ByteArray Buffer
-		{
-			get
-			{
-				return buffer;
-			}
-			set
-			{
-				buffer = value;
-			}
-		}
+        public ByteArray Buffer
+        {
+            get
+            {
+                return buffer;
+            }
+            set
+            {
+                buffer = value;
+            }
+        }
 
-		public PendingPacket(PacketHeader header)
-		{
-			this.header = header;
-			buffer = new ByteArray();
-			buffer.Compressed = header.Compressed;
-		}
-	}
+        public PendingPacket(PacketHeader header)
+        {
+            this.header = header;
+            buffer = new ByteArray();
+            buffer.Compressed = header.Compressed;
+        }
+    }
 }

@@ -3,64 +3,64 @@ using System.Collections.Generic;
 
 namespace Tom.Entities
 {
-	public interface Buddy
-	{
-		int Id
-		{
-			get;
-			set;
-		}
+    public interface Buddy
+    {
+        int Id
+        {
+            get;
+            set;
+        }
 
-		string Name
-		{
-			get;
-		}
+        string Name
+        {
+            get;
+        }
 
-		bool IsBlocked
-		{
-			get;
-			set;
-		}
+        bool IsBlocked
+        {
+            get;
+            set;
+        }
 
-		bool IsOnline
-		{
-			get;
-		}
+        bool IsOnline
+        {
+            get;
+        }
 
-		bool IsTemp
-		{
-			get;
-		}
+        bool IsTemp
+        {
+            get;
+        }
 
-		string State
-		{
-			get;
-		}
+        string State
+        {
+            get;
+        }
 
-		string NickName
-		{
-			get;
-		}
+        string NickName
+        {
+            get;
+        }
 
-		List<BuddyVariable> Variables
-		{
-			get;
-		}
+        List<BuddyVariable> Variables
+        {
+            get;
+        }
 
-		BuddyVariable GetVariable(string varName);
+        BuddyVariable GetVariable(string varName);
 
-		bool ContainsVariable(string varName);
+        bool ContainsVariable(string varName);
 
-		List<BuddyVariable> GetOfflineVariables();
+        List<BuddyVariable> GetOfflineVariables();
 
-		List<BuddyVariable> GetOnlineVariables();
+        List<BuddyVariable> GetOnlineVariables();
 
-		void SetVariable(BuddyVariable bVar);
+        void SetVariable(BuddyVariable bVar);
 
-		void SetVariables(ICollection<BuddyVariable> variables);
+        void SetVariables(ICollection<BuddyVariable> variables);
 
-		void RemoveVariable(string varName);
+        void RemoveVariable(string varName);
 
-		void ClearVolatileVariables();
-	}
+        void ClearVolatileVariables();
+    }
 }

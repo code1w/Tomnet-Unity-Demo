@@ -1,57 +1,57 @@
 namespace Tom.Core.Sockets
 {
-	public interface ISocketLayer
-	{
-		bool IsConnected
-		{
-			get;
-		}
+    public interface ISocketLayer
+    {
+        bool IsConnected
+        {
+            get;
+        }
 
-		bool RequiresConnection
-		{
-			get;
-		}
+        bool RequiresConnection
+        {
+            get;
+        }
 
-		ConnectionDelegate OnConnect
-		{
-			get;
-			set;
-		}
+        ConnectionDelegate OnConnect
+        {
+            get;
+            set;
+        }
 
-		DisconnectionDelegate OnDisconnect
-		{
-			get;
-			set;
-		}
+        DisconnectionDelegate OnDisconnect
+        {
+            get;
+            set;
+        }
 
-		OnDataDelegate OnData
-		{
-			get;
-			set;
-		}
+        OnDataDelegate OnData
+        {
+            get;
+            set;
+        }
 
-		OnStringDataDelegate OnStringData
-		{
-			get;
-			set;
-		}
+        OnStringDataDelegate OnStringData
+        {
+            get;
+            set;
+        }
 
-		OnErrorDelegate OnError
-		{
-			get;
-			set;
-		}
+        OnErrorDelegate OnError
+        {
+            get;
+            set;
+        }
 
-		void Connect(string host, int port);
+        void Connect(string host, int port);
 
-		void Disconnect();
+        void Disconnect();
 
-		void Disconnect(string reason);
+        void Disconnect(string reason);
 
-		void Write(byte[] data);
+        void Write(byte[] data);
 
-		void Write(string data);
+        void Write(string data);
 
-		void Kill();
-	}
+        void Kill();
+    }
 }

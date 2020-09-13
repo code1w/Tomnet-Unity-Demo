@@ -403,14 +403,14 @@ namespace Google.Protobuf
         public static FieldCodec<T> ForMessage<T>(uint tag, MessageParser<T> parser) where T : class, IMessage<T>
         {
             return new FieldCodec<T>(
-                input => 
-                { 
-                    T message = parser.CreateTemplate(); 
-                    input.ReadMessage(message); 
-                    return message; 
+                input =>
+                {
+                    T message = parser.CreateTemplate();
+                    input.ReadMessage(message);
+                    return message;
                 },
                 (output, value) => output.WriteMessage(value),
-                (CodedInputStream i, ref T v) => 
+                (CodedInputStream i, ref T v) =>
                 {
                     if (v == null)
                     {
@@ -434,7 +434,7 @@ namespace Google.Protobuf
                         v.MergeFrom(v2);
                     }
                     return true;
-                }, 
+                },
                 message => CodedOutputStream.ComputeMessageSize(message), tag);
         }
 
@@ -448,14 +448,14 @@ namespace Google.Protobuf
         public static FieldCodec<T> ForGroup<T>(uint startTag, uint endTag, MessageParser<T> parser) where T : class, IMessage<T>
         {
             return new FieldCodec<T>(
-                input => 
-                { 
+                input =>
+                {
                     T message = parser.CreateTemplate();
                     input.ReadGroup(message);
                     return message;
                 },
-                (output, value) => output.WriteGroup(value), 
-                (CodedInputStream i, ref T v) => 
+                (output, value) => output.WriteGroup(value),
+                (CodedInputStream i, ref T v) =>
                 {
                     if (v == null)
                     {
@@ -479,7 +479,7 @@ namespace Google.Protobuf
                         v.MergeFrom(v2);
                     }
                     return true;
-                }, 
+                },
                 message => CodedOutputStream.ComputeGroupSize(message), startTag, endTag);
         }
 
@@ -569,7 +569,7 @@ namespace Google.Protobuf
                 {
                     throw new InvalidOperationException("Invalid type argument requested for wrapper codec: " + typeof(T));
                 }
-                return (FieldCodec<T>) value;
+                return (FieldCodec<T>)value;
             }
 
             internal static Func<CodedInputStream, T?> GetReader<T>() where T : struct
@@ -620,7 +620,7 @@ namespace Google.Protobuf
                 codec.WriteTagAndValue(output, value);
             }
 
-            internal  static int CalculateSize<T>(T value, FieldCodec<T> codec)
+            internal static int CalculateSize<T>(T value, FieldCodec<T> codec)
             {
                 int fieldLength = codec.CalculateSizeWithTag(value);
                 return CodedOutputStream.ComputeLengthSize(fieldLength) + fieldLength;

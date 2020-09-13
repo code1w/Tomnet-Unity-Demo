@@ -64,7 +64,7 @@ namespace Google.Protobuf
             {
                 return ((ExtensionValue<TValue>)value).GetValue();
             }
-            else 
+            else
             {
                 return extension.DefaultValue;
             }
@@ -80,7 +80,7 @@ namespace Google.Protobuf
             {
                 return ((RepeatedExtensionValue<TValue>)value).GetValue();
             }
-            else 
+            else
             {
                 return null;
             }
@@ -132,7 +132,7 @@ namespace Google.Protobuf
                     set.ValuesByNumber.Add(extension.FieldNumber, extensionValue);
                 }
             }
-            
+
             ((ExtensionValue<TValue>)extensionValue).SetValue(value);
         }
 
@@ -185,7 +185,7 @@ namespace Google.Protobuf
         {
             Extension extension;
             int lastFieldNumber = WireFormat.GetTagFieldNumber(stream.LastTag);
-            
+
             IExtensionValue extensionValue;
             if (set != null && set.ValuesByNumber.TryGetValue(lastFieldNumber, out extensionValue))
             {

@@ -5,90 +5,90 @@ using System.Collections.Generic;
 
 namespace Tom.Entities
 {
-	public interface User
-	{
-		int Id
-		{
-			get;
-		}
+    public interface User
+    {
+        int Id
+        {
+            get;
+        }
 
-		string Name
-		{
-			get;
-		}
+        string Name
+        {
+            get;
+        }
 
-		int PlayerId
-		{
-			get;
-		}
+        int PlayerId
+        {
+            get;
+        }
 
-		bool IsPlayer
-		{
-			get;
-		}
+        bool IsPlayer
+        {
+            get;
+        }
 
-		bool IsSpectator
-		{
-			get;
-		}
+        bool IsSpectator
+        {
+            get;
+        }
 
-		int PrivilegeId
-		{
-			get;
-			set;
-		}
+        int PrivilegeId
+        {
+            get;
+            set;
+        }
 
-		IUserManager UserManager
-		{
-			get;
-			set;
-		}
+        IUserManager UserManager
+        {
+            get;
+            set;
+        }
 
-		bool IsItMe
-		{
-			get;
-		}
+        bool IsItMe
+        {
+            get;
+        }
 
-		Dictionary<string, object> Properties
-		{
-			get;
-			set;
-		}
+        Dictionary<string, object> Properties
+        {
+            get;
+            set;
+        }
 
-		Vec3D AOIEntryPoint
-		{
-			get;
-			set;
-		}
+        Vec3D AOIEntryPoint
+        {
+            get;
+            set;
+        }
 
-		int GetPlayerId(Room room);
+        int GetPlayerId(Room room);
 
-		void SetPlayerId(int id, Room room);
+        void SetPlayerId(int id, Room room);
 
-		void RemovePlayerId(Room room);
+        void RemovePlayerId(Room room);
 
-		bool IsGuest();
+        bool IsGuest();
 
-		bool IsStandardUser();
+        bool IsStandardUser();
 
-		bool IsModerator();
+        bool IsModerator();
 
-		bool IsAdmin();
+        bool IsAdmin();
 
-		bool IsPlayerInRoom(Room room);
+        bool IsPlayerInRoom(Room room);
 
-		bool IsSpectatorInRoom(Room room);
+        bool IsSpectatorInRoom(Room room);
 
-		bool IsJoinedInRoom(Room room);
+        bool IsJoinedInRoom(Room room);
 
-		List<UserVariable> GetVariables();
+        List<UserVariable> GetVariables();
 
-		UserVariable GetVariable(string varName);
+        UserVariable GetVariable(string varName);
 
-		void SetVariable(UserVariable userVariable);
+        void SetVariable(UserVariable userVariable);
 
-		void SetVariables(ICollection<UserVariable> userVaribles);
+        void SetVariables(ICollection<UserVariable> userVaribles);
 
-		bool ContainsVariable(string name);
-	}
+        bool ContainsVariable(string name);
+    }
 }

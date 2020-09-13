@@ -315,7 +315,7 @@ namespace Google.Protobuf.Collections
             if (index == -1)
             {
                 return false;
-            }            
+            }
             Array.Copy(array, index + 1, array, index, count - index - 1);
             count--;
             array[count] = default(T);
@@ -599,7 +599,7 @@ namespace Google.Protobuf.Collections
 
         int IList.Add(object value)
         {
-            Add((T) value);
+            Add((T)value);
             return count - 1;
         }
 
@@ -619,7 +619,7 @@ namespace Google.Protobuf.Collections
 
         void IList.Insert(int index, object value)
         {
-            Insert(index, (T) value);
+            Insert(index, (T)value);
         }
 
         void IList.Remove(object value)

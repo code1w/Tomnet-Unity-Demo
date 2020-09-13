@@ -8,13 +8,11 @@ using System.Linq;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using System.Net;
-namespace Tom {
-    public class PacketBuilder {
+namespace Tom
+{
+    public class PacketBuilder
+    {
 
-<<<<<<< HEAD
-=======
-        private ProtobufUtility protobuf = new ProtobufUtility();
->>>>>>> 7848d5004388ba039247ab43f8121ebbfcd4871c
         public byte[] ProtobufPacket(Google.Protobuf.IMessage message)
         {
             int writeIndex = 0;
@@ -34,20 +32,23 @@ namespace Tom {
 
 
 
-        private void WriteUInt16( ref byte[] packet, ref int writeIndex, ushort num ) {
+        private void WriteUInt16(ref byte[] packet, ref int writeIndex, ushort num)
+        {
             byte[] tmp = BitConverter.GetBytes(IPAddress.HostToNetworkOrder(num));
-            Array.Copy( tmp, 0, packet, writeIndex, 2 );
+            Array.Copy(tmp, 0, packet, writeIndex, 2);
             writeIndex += 2;
         }
 
-        private void WriteInt32( ref byte[] packet, ref int writeIndex, int num ) {
-            byte[] tmp = BitConverter.GetBytes(IPAddress.HostToNetworkOrder( num ));
-            Array.Copy( tmp, 0, packet, writeIndex, 4 );
+        private void WriteInt32(ref byte[] packet, ref int writeIndex, int num)
+        {
+            byte[] tmp = BitConverter.GetBytes(IPAddress.HostToNetworkOrder(num));
+            Array.Copy(tmp, 0, packet, writeIndex, 4);
             writeIndex += 4;
         }
 
-        private void WriteBytes( ref byte[] packet, ref int writeIndex, byte[] data, int len ) {
-            Array.Copy( data, 0, packet, writeIndex, len );
+        private void WriteBytes(ref byte[] packet, ref int writeIndex, byte[] data, int len)
+        {
+            Array.Copy(data, 0, packet, writeIndex, len);
             writeIndex += len;
         }
     }

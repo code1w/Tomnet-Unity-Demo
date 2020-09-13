@@ -78,7 +78,7 @@ namespace Google.Protobuf.Reflection
             switch (fieldNumber)
             {
                 case EnumDescriptorProto.ValueFieldNumber:
-                    return (IReadOnlyList<DescriptorBase>) Values;
+                    return (IReadOnlyList<DescriptorBase>)Values;
                 default:
                     return null;
             }

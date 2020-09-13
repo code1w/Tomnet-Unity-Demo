@@ -4,24 +4,24 @@ using System.Collections.Generic;
 
 namespace Tom.Requests
 {
-	public class ObjectMessageRequest : GenericMessageRequest
-	{
-		public ObjectMessageRequest(ISFSObject obj, Room targetRoom, ICollection<User> recipients)
-		{
-			type = 4;
-			parameters = obj;
-			room = targetRoom;
-			recipient = recipients;
-		}
+    public class ObjectMessageRequest : GenericMessageRequest
+    {
+        public ObjectMessageRequest(ISFSObject obj, Room targetRoom, ICollection<User> recipients)
+        {
+            type = 4;
+            parameters = obj;
+            room = targetRoom;
+            recipient = recipients;
+        }
 
-		public ObjectMessageRequest(ISFSObject obj, Room targetRoom)
-			: this(obj, targetRoom, null)
-		{
-		}
+        public ObjectMessageRequest(ISFSObject obj, Room targetRoom)
+            : this(obj, targetRoom, null)
+        {
+        }
 
-		public ObjectMessageRequest(ISFSObject obj)
-			: this(obj, null, null)
-		{
-		}
-	}
+        public ObjectMessageRequest(ISFSObject obj)
+            : this(obj, null, null)
+        {
+        }
+    }
 }

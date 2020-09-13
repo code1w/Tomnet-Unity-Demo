@@ -2,32 +2,32 @@ using Tom.Entities.Data;
 
 namespace Tom.Entities.Invitation
 {
-	public interface Invitation
-	{
-		int Id
-		{
-			get;
-			set;
-		}
+    public interface Invitation
+    {
+        int Id
+        {
+            get;
+            set;
+        }
 
-		User Inviter
-		{
-			get;
-		}
+        User Inviter
+        {
+            get;
+        }
 
-		User Invitee
-		{
-			get;
-		}
+        User Invitee
+        {
+            get;
+        }
 
-		int SecondsForAnswer
-		{
-			get;
-		}
+        int SecondsForAnswer
+        {
+            get;
+        }
 
-		ISFSObject Params
-		{
-			get;
-		}
-	}
+        ISFSObject Params
+        {
+            get;
+        }
+    }
 }

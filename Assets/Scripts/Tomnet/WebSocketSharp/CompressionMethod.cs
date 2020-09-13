@@ -1,8 +1,8 @@
 namespace WebSocketSharp
 {
-	public enum CompressionMethod : byte
-	{
-		None,
-		Deflate
-	}
+    public enum CompressionMethod : byte
+    {
+        None,
+        Deflate
+    }
 }

@@ -118,7 +118,7 @@ namespace Google.Protobuf
             {
                 if (CommonRepresentations[i] == "")
                 {
-                    CommonRepresentations[i] = ((char) i).ToString();
+                    CommonRepresentations[i] = ((char)i).ToString();
                 }
             }
         }
@@ -299,41 +299,41 @@ namespace Google.Protobuf
         {
             if (accessor.Descriptor.IsMap)
             {
-                IDictionary dictionary = (IDictionary) value;
+                IDictionary dictionary = (IDictionary)value;
                 return dictionary.Count == 0;
             }
             if (accessor.Descriptor.IsRepeated)
             {
-                IList list = (IList) value;
+                IList list = (IList)value;
                 return list.Count == 0;
             }
             switch (accessor.Descriptor.FieldType)
             {
                 case FieldType.Bool:
-                    return (bool) value == false;
+                    return (bool)value == false;
                 case FieldType.Bytes:
-                    return (ByteString) value == ByteString.Empty;
+                    return (ByteString)value == ByteString.Empty;
                 case FieldType.String:
-                    return (string) value == "";
+                    return (string)value == "";
                 case FieldType.Double:
-                    return (double) value == 0.0;
+                    return (double)value == 0.0;
                 case FieldType.SInt32:
                 case FieldType.Int32:
                 case FieldType.SFixed32:
                 case FieldType.Enum:
-                    return (int) value == 0;
+                    return (int)value == 0;
                 case FieldType.Fixed32:
                 case FieldType.UInt32:
-                    return (uint) value == 0;
+                    return (uint)value == 0;
                 case FieldType.Fixed64:
                 case FieldType.UInt64:
-                    return (ulong) value == 0;
+                    return (ulong)value == 0;
                 case FieldType.SFixed64:
                 case FieldType.Int64:
                 case FieldType.SInt64:
-                    return (long) value == 0;
+                    return (long)value == 0;
                 case FieldType.Float:
-                    return (float) value == 0f;
+                    return (float)value == 0f;
                 case FieldType.Message:
                 case FieldType.Group: // Never expect to get this, but...
                     return value == null;
@@ -381,13 +381,13 @@ namespace Google.Protobuf
             }
             else if (value is int || value is uint)
             {
-                IFormattable formattable = (IFormattable) value;
+                IFormattable formattable = (IFormattable)value;
                 writer.Write(formattable.ToString("d", CultureInfo.InvariantCulture));
             }
             else if (value is long || value is ulong)
             {
                 writer.Write('"');
-                IFormattable formattable = (IFormattable) value;
+                IFormattable formattable = (IFormattable)value;
                 writer.Write(formattable.ToString("d", CultureInfo.InvariantCulture));
                 writer.Write('"');
             }
@@ -412,7 +412,7 @@ namespace Google.Protobuf
             }
             else if (value is float || value is double)
             {
-                string text = ((IFormattable) value).ToString("r", CultureInfo.InvariantCulture);
+                string text = ((IFormattable)value).ToString("r", CultureInfo.InvariantCulture);
                 if (text == "NaN" || text == "Infinity" || text == "-Infinity")
                 {
                     writer.Write('"');
@@ -458,7 +458,7 @@ namespace Google.Protobuf
             {
                 if (value is IMessage)
                 {
-                    var message = (IMessage) value;
+                    var message = (IMessage)value;
                     value = message.Descriptor.Fields[WrappersReflection.WrapperValueFieldNumber].Accessor.GetValue(message);
                 }
                 WriteValue(writer, value);
@@ -509,22 +509,22 @@ namespace Google.Protobuf
             // avoid all the reflection at this point, by casting to Timestamp. In the interests of
             // avoiding subtle bugs, don't do that until we've implemented DynamicMessage so that we can prove
             // it still works in that case.
-            int nanos = (int) value.Descriptor.Fields[Timestamp.NanosFieldNumber].Accessor.GetValue(value);
-            long seconds = (long) value.Descriptor.Fields[Timestamp.SecondsFieldNumber].Accessor.GetValue(value);
+            int nanos = (int)value.Descriptor.Fields[Timestamp.NanosFieldNumber].Accessor.GetValue(value);
+            long seconds = (long)value.Descriptor.Fields[Timestamp.SecondsFieldNumber].Accessor.GetValue(value);
             writer.Write(Timestamp.ToJson(seconds, nanos, DiagnosticOnly));
         }
 
         private void WriteDuration(TextWriter writer, IMessage value)
         {
             // TODO: Same as for WriteTimestamp
-            int nanos = (int) value.Descriptor.Fields[Duration.NanosFieldNumber].Accessor.GetValue(value);
-            long seconds = (long) value.Descriptor.Fields[Duration.SecondsFieldNumber].Accessor.GetValue(value);
+            int nanos = (int)value.Descriptor.Fields[Duration.NanosFieldNumber].Accessor.GetValue(value);
+            long seconds = (long)value.Descriptor.Fields[Duration.SecondsFieldNumber].Accessor.GetValue(value);
             writer.Write(Duration.ToJson(seconds, nanos, DiagnosticOnly));
         }
 
         private void WriteFieldMask(TextWriter writer, IMessage value)
         {
-            var paths = (IList<string>) value.Descriptor.Fields[FieldMask.PathsFieldNumber].Accessor.GetValue(value);
+            var paths = (IList<string>)value.Descriptor.Fields[FieldMask.PathsFieldNumber].Accessor.GetValue(value);
             writer.Write(FieldMask.ToJson(paths, DiagnosticOnly));
         }
 
@@ -536,8 +536,8 @@ namespace Google.Protobuf
                 return;
             }
 
-            string typeUrl = (string) value.Descriptor.Fields[Any.TypeUrlFieldNumber].Accessor.GetValue(value);
-            ByteString data = (ByteString) value.Descriptor.Fields[Any.ValueFieldNumber].Accessor.GetValue(value);
+            string typeUrl = (string)value.Descriptor.Fields[Any.TypeUrlFieldNumber].Accessor.GetValue(value);
+            ByteString data = (ByteString)value.Descriptor.Fields[Any.ValueFieldNumber].Accessor.GetValue(value);
             string typeName = Any.GetTypeName(typeUrl);
             MessageDescriptor descriptor = settings.TypeRegistry.Find(typeName);
             if (descriptor == null)
@@ -566,8 +566,8 @@ namespace Google.Protobuf
 
         private void WriteDiagnosticOnlyAny(TextWriter writer, IMessage value)
         {
-            string typeUrl = (string) value.Descriptor.Fields[Any.TypeUrlFieldNumber].Accessor.GetValue(value);
-            ByteString data = (ByteString) value.Descriptor.Fields[Any.ValueFieldNumber].Accessor.GetValue(value);
+            string typeUrl = (string)value.Descriptor.Fields[Any.TypeUrlFieldNumber].Accessor.GetValue(value);
+            ByteString data = (ByteString)value.Descriptor.Fields[Any.ValueFieldNumber].Accessor.GetValue(value);
             writer.Write("{ ");
             WriteString(writer, AnyTypeUrlField);
             writer.Write(NameValueSeparator);
@@ -584,12 +584,12 @@ namespace Google.Protobuf
         private void WriteStruct(TextWriter writer, IMessage message)
         {
             writer.Write("{ ");
-            IDictionary fields = (IDictionary) message.Descriptor.Fields[Struct.FieldsFieldNumber].Accessor.GetValue(message);
+            IDictionary fields = (IDictionary)message.Descriptor.Fields[Struct.FieldsFieldNumber].Accessor.GetValue(message);
             bool first = true;
             foreach (DictionaryEntry entry in fields)
             {
-                string key = (string) entry.Key;
-                IMessage value = (IMessage) entry.Value;
+                string key = (string)entry.Key;
+                IMessage value = (IMessage)entry.Value;
                 if (string.IsNullOrEmpty(key) || value == null)
                 {
                     throw new InvalidOperationException("Struct fields cannot have an empty key or a null value.");
@@ -627,7 +627,7 @@ namespace Google.Protobuf
                 case Value.StructValueFieldNumber:
                 case Value.ListValueFieldNumber:
                     // Structs and ListValues are nested messages, and already well-known types.
-                    var nestedMessage = (IMessage) specifiedField.Accessor.GetValue(message);
+                    var nestedMessage = (IMessage)specifiedField.Accessor.GetValue(message);
                     WriteWellKnownTypeValue(writer, nestedMessage.Descriptor, nestedMessage);
                     return;
                 case Value.NullValueFieldNumber:
@@ -668,15 +668,15 @@ namespace Google.Protobuf
                 string keyText;
                 if (pair.Key is string)
                 {
-                    keyText = (string) pair.Key;
+                    keyText = (string)pair.Key;
                 }
                 else if (pair.Key is bool)
                 {
-                    keyText = (bool) pair.Key ? "true" : "false";
+                    keyText = (bool)pair.Key ? "true" : "false";
                 }
                 else if (pair.Key is int || pair.Key is uint | pair.Key is long || pair.Key is ulong)
                 {
-                    keyText = ((IFormattable) pair.Key).ToString("d", CultureInfo.InvariantCulture);
+                    keyText = ((IFormattable)pair.Key).ToString("d", CultureInfo.InvariantCulture);
                 }
                 else
                 {
@@ -728,7 +728,7 @@ namespace Google.Protobuf
                 {
                     throw new ArgumentException("String contains high surrogate not preceded by low surrogate");
                 }
-                switch ((uint) c)
+                switch ((uint)c)
                 {
                     // These are not required by json spec
                     // but used to prevent security bugs in javascript.

@@ -3,12 +3,12 @@ using System.Reflection;
 
 namespace SFSLitJson
 {
-	internal struct PropertyMetadata
-	{
-		public MemberInfo Info;
+    internal struct PropertyMetadata
+    {
+        public MemberInfo Info;
 
-		public bool IsField;
+        public bool IsField;
 
-		public Type Type;
-	}
+        public Type Type;
+    }
 }

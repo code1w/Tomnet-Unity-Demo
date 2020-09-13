@@ -1,15 +1,15 @@
 namespace Tom.Entities.Match
 {
-	public interface IMatcher
-	{
-		string Symbol
-		{
-			get;
-		}
+    public interface IMatcher
+    {
+        string Symbol
+        {
+            get;
+        }
 
-		int Type
-		{
-			get;
-		}
-	}
+        int Type
+        {
+            get;
+        }
+    }
 }

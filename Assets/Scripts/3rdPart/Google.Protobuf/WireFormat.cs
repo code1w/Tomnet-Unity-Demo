@@ -82,7 +82,7 @@ namespace Google.Protobuf
         /// </summary>
         public static WireType GetTagWireType(uint tag)
         {
-            return (WireType) (tag & TagTypeMask);
+            return (WireType)(tag & TagTypeMask);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Google.Protobuf
         /// </summary>
         public static int GetTagFieldNumber(uint tag)
         {
-            return (int) tag >> TagTypeBits;
+            return (int)tag >> TagTypeBits;
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Google.Protobuf
         /// </summary>
         public static uint MakeTag(int fieldNumber, WireType wireType)
         {
-            return (uint) (fieldNumber << TagTypeBits) | (uint) wireType;
+            return (uint)(fieldNumber << TagTypeBits) | (uint)wireType;
         }
     }
 }

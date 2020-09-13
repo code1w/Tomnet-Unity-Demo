@@ -3,31 +3,31 @@ using WebSocketSharp.Net.WebSockets;
 
 namespace WebSocketSharp.Server
 {
-	public interface IWebSocketSession
-	{
-		WebSocketState ConnectionState
-		{
-			get;
-		}
+    public interface IWebSocketSession
+    {
+        WebSocketState ConnectionState
+        {
+            get;
+        }
 
-		WebSocketContext Context
-		{
-			get;
-		}
+        WebSocketContext Context
+        {
+            get;
+        }
 
-		string ID
-		{
-			get;
-		}
+        string ID
+        {
+            get;
+        }
 
-		string Protocol
-		{
-			get;
-		}
+        string Protocol
+        {
+            get;
+        }
 
-		DateTime StartTime
-		{
-			get;
-		}
-	}
+        DateTime StartTime
+        {
+            get;
+        }
+    }
 }

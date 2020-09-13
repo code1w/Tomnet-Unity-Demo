@@ -2,112 +2,112 @@ using Tom.Util;
 
 namespace Tom.Entities.Data
 {
-	public interface ISFSObject
-	{
-		bool IsNull(string key);
+    public interface ISFSObject
+    {
+        bool IsNull(string key);
 
-		bool ContainsKey(string key);
+        bool ContainsKey(string key);
 
-		void RemoveElement(string key);
+        void RemoveElement(string key);
 
-		string[] GetKeys();
+        string[] GetKeys();
 
-		int Size();
+        int Size();
 
-		ByteArray ToBinary();
+        ByteArray ToBinary();
 
-		string ToJson();
+        string ToJson();
 
-		string GetDump(bool format);
+        string GetDump(bool format);
 
-		string GetDump();
+        string GetDump();
 
-		string GetHexDump();
+        string GetHexDump();
 
-		SFSDataWrapper GetData(string key);
+        SFSDataWrapper GetData(string key);
 
-		bool GetBool(string key);
+        bool GetBool(string key);
 
-		byte GetByte(string key);
+        byte GetByte(string key);
 
-		short GetShort(string key);
+        short GetShort(string key);
 
-		int GetInt(string key);
+        int GetInt(string key);
 
-		long GetLong(string key);
+        long GetLong(string key);
 
-		float GetFloat(string key);
+        float GetFloat(string key);
 
-		double GetDouble(string key);
+        double GetDouble(string key);
 
-		string GetUtfString(string key);
+        string GetUtfString(string key);
 
-		string GetText(string key);
+        string GetText(string key);
 
-		bool[] GetBoolArray(string key);
+        bool[] GetBoolArray(string key);
 
-		ByteArray GetByteArray(string key);
+        ByteArray GetByteArray(string key);
 
-		short[] GetShortArray(string key);
+        short[] GetShortArray(string key);
 
-		int[] GetIntArray(string key);
+        int[] GetIntArray(string key);
 
-		long[] GetLongArray(string key);
+        long[] GetLongArray(string key);
 
-		float[] GetFloatArray(string key);
+        float[] GetFloatArray(string key);
 
-		double[] GetDoubleArray(string key);
+        double[] GetDoubleArray(string key);
 
-		string[] GetUtfStringArray(string key);
+        string[] GetUtfStringArray(string key);
 
-		ISFSArray GetSFSArray(string key);
+        ISFSArray GetSFSArray(string key);
 
-		ISFSObject GetSFSObject(string key);
+        ISFSObject GetSFSObject(string key);
 
-		object GetClass(string key);
+        object GetClass(string key);
 
-		void PutNull(string key);
+        void PutNull(string key);
 
-		void PutBool(string key, bool val);
+        void PutBool(string key, bool val);
 
-		void PutByte(string key, byte val);
+        void PutByte(string key, byte val);
 
-		void PutShort(string key, short val);
+        void PutShort(string key, short val);
 
-		void PutInt(string key, int val);
+        void PutInt(string key, int val);
 
-		void PutLong(string key, long val);
+        void PutLong(string key, long val);
 
-		void PutFloat(string key, float val);
+        void PutFloat(string key, float val);
 
-		void PutDouble(string key, double val);
+        void PutDouble(string key, double val);
 
-		void PutUtfString(string key, string val);
+        void PutUtfString(string key, string val);
 
-		void PutText(string key, string val);
+        void PutText(string key, string val);
 
-		void PutBoolArray(string key, bool[] val);
+        void PutBoolArray(string key, bool[] val);
 
-		void PutByteArray(string key, ByteArray val);
+        void PutByteArray(string key, ByteArray val);
 
-		void PutShortArray(string key, short[] val);
+        void PutShortArray(string key, short[] val);
 
-		void PutIntArray(string key, int[] val);
+        void PutIntArray(string key, int[] val);
 
-		void PutLongArray(string key, long[] val);
+        void PutLongArray(string key, long[] val);
 
-		void PutFloatArray(string key, float[] val);
+        void PutFloatArray(string key, float[] val);
 
-		void PutDoubleArray(string key, double[] val);
+        void PutDoubleArray(string key, double[] val);
 
-		void PutUtfStringArray(string key, string[] val);
+        void PutUtfStringArray(string key, string[] val);
 
-		void PutSFSArray(string key, ISFSArray val);
+        void PutSFSArray(string key, ISFSArray val);
 
-		void PutSFSObject(string key, ISFSObject val);
+        void PutSFSObject(string key, ISFSObject val);
 
-		void PutClass(string key, object val);
+        void PutClass(string key, object val);
 
-		void Put(string key, SFSDataWrapper val);
-	}
+        void Put(string key, SFSDataWrapper val);
+    }
 }

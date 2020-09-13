@@ -4,130 +4,130 @@ using System.Collections.Generic;
 
 namespace Tom.Entities
 {
-	public interface Room
-	{
-		int Id
-		{
-			get;
-		}
+    public interface Room
+    {
+        int Id
+        {
+            get;
+        }
 
-		string Name
-		{
-			get;
-			set;
-		}
+        string Name
+        {
+            get;
+            set;
+        }
 
-		string GroupId
-		{
-			get;
-		}
+        string GroupId
+        {
+            get;
+        }
 
-		bool IsJoined
-		{
-			get;
-			set;
-		}
+        bool IsJoined
+        {
+            get;
+            set;
+        }
 
-		bool IsGame
-		{
-			get;
-			set;
-		}
+        bool IsGame
+        {
+            get;
+            set;
+        }
 
-		bool IsHidden
-		{
-			get;
-			set;
-		}
+        bool IsHidden
+        {
+            get;
+            set;
+        }
 
-		bool IsPasswordProtected
-		{
-			get;
-			set;
-		}
+        bool IsPasswordProtected
+        {
+            get;
+            set;
+        }
 
-		bool IsManaged
-		{
-			get;
-			set;
-		}
+        bool IsManaged
+        {
+            get;
+            set;
+        }
 
-		int UserCount
-		{
-			get;
-			set;
-		}
+        int UserCount
+        {
+            get;
+            set;
+        }
 
-		int MaxUsers
-		{
-			get;
-			set;
-		}
+        int MaxUsers
+        {
+            get;
+            set;
+        }
 
-		int SpectatorCount
-		{
-			get;
-			set;
-		}
+        int SpectatorCount
+        {
+            get;
+            set;
+        }
 
-		int MaxSpectators
-		{
-			get;
-			set;
-		}
+        int MaxSpectators
+        {
+            get;
+            set;
+        }
 
-		int Capacity
-		{
-			get;
-		}
+        int Capacity
+        {
+            get;
+        }
 
-		List<User> UserList
-		{
-			get;
-		}
+        List<User> UserList
+        {
+            get;
+        }
 
-		List<User> PlayerList
-		{
-			get;
-		}
+        List<User> PlayerList
+        {
+            get;
+        }
 
-		List<User> SpectatorList
-		{
-			get;
-		}
+        List<User> SpectatorList
+        {
+            get;
+        }
 
-		Dictionary<object, object> Properties
-		{
-			get;
-			set;
-		}
+        Dictionary<object, object> Properties
+        {
+            get;
+            set;
+        }
 
-		IRoomManager RoomManager
-		{
-			get;
-			set;
-		}
+        IRoomManager RoomManager
+        {
+            get;
+            set;
+        }
 
-		void AddUser(User user);
+        void AddUser(User user);
 
-		void RemoveUser(User user);
+        void RemoveUser(User user);
 
-		bool ContainsUser(User user);
+        bool ContainsUser(User user);
 
-		User GetUserByName(string name);
+        User GetUserByName(string name);
 
-		User GetUserById(int id);
+        User GetUserById(int id);
 
-		RoomVariable GetVariable(string name);
+        RoomVariable GetVariable(string name);
 
-		List<RoomVariable> GetVariables();
+        List<RoomVariable> GetVariables();
 
-		void SetVariable(RoomVariable roomVariable);
+        void SetVariable(RoomVariable roomVariable);
 
-		void SetVariables(ICollection<RoomVariable> roomVariables);
+        void SetVariables(ICollection<RoomVariable> roomVariables);
 
-		bool ContainsVariable(string name);
+        bool ContainsVariable(string name);
 
-		void Merge(Room anotherRoom);
-	}
+        void Merge(Room anotherRoom);
+    }
 }

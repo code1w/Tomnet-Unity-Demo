@@ -1,4 +1,4 @@
 namespace Tom.Core.Sockets
 {
-	public delegate void DisconnectionDelegate(string reason = null);
+    public delegate void DisconnectionDelegate(string reason = null);
 }

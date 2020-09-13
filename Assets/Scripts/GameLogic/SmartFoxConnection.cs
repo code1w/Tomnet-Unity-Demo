@@ -7,35 +7,44 @@ using Tom;
  */
 public class SmartFoxConnection : MonoBehaviour
 {
-	private static SmartFoxConnection mInstance; 
-	private static TomOrange sfs;
+    private static SmartFoxConnection mInstance;
+    private static TomOrange sfs;
 
-	public static TomOrange Connection {
-		get {
-            if (mInstance == null) {
+    public static TomOrange Connection
+    {
+        get
+        {
+            if (mInstance == null)
+            {
                 mInstance = new GameObject("SmartFoxConnection").AddComponent(typeof(SmartFoxConnection)) as SmartFoxConnection;
             }
-			return sfs;
+            return sfs;
         }
-      set {
-            if (mInstance == null) {
+        set
+        {
+            if (mInstance == null)
+            {
                 mInstance = new GameObject("SmartFoxConnection").AddComponent(typeof(SmartFoxConnection)) as SmartFoxConnection;
             }
-			sfs = value;
-        } 
-	}
-
-	public static bool IsInitialized {
-		get { 
-			return (sfs != null); 
-		}
-	}
-	
-	// Handle disconnection automagically
-	// ** Important for Windows users - can cause crashes otherwise
-    void OnApplicationQuit() { 
-		if (sfs.IsConnected) {
-			sfs.Disconnect();
+            sfs = value;
         }
-    } 
+    }
+
+    public static bool IsInitialized
+    {
+        get
+        {
+            return (sfs != null);
+        }
+    }
+
+    // Handle disconnection automagically
+    // ** Important for Windows users - can cause crashes otherwise
+    void OnApplicationQuit()
+    {
+        if (sfs.IsConnected)
+        {
+            sfs.Disconnect();
+        }
+    }
 }

@@ -48,7 +48,8 @@ namespace Google.Protobuf.Reflection
         {
             UnorderedExtensions = DescriptorUtil.ConvertAndMakeReadOnly(
                 file.Proto.Extension,
-                (extension, i) => {
+                (extension, i) =>
+                {
                     if (extensions?.Length != 0)
                     {
                         return new FieldDescriptor(extension, file, null, i, null, extensions?[i]);
@@ -64,7 +65,8 @@ namespace Google.Protobuf.Reflection
         {
             UnorderedExtensions = DescriptorUtil.ConvertAndMakeReadOnly(
                 message.Proto.Extension,
-                (extension, i) => {
+                (extension, i) =>
+                {
                     if (extensions?.Length != 0)
                     {
                         return new FieldDescriptor(extension, message.File, message, i, null, extensions?[i]);

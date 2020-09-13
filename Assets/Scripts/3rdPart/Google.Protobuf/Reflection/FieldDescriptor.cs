@@ -125,7 +125,7 @@ namespace Google.Protobuf.Reflection
             // a MapField, but that feels a tad nasty.
             this.propertyName = propertyName;
             Extension = extension;
-            JsonName =  Proto.JsonName == "" ? JsonFormatter.ToJsonName(Proto.Name) : Proto.JsonName;
+            JsonName = Proto.JsonName == "" ? JsonFormatter.ToJsonName(Proto.Name) : Proto.JsonName;
         }
 
 
@@ -333,7 +333,7 @@ namespace Google.Protobuf.Reflection
         /// <summary>
         /// Gets a single value field option for this descriptor
         /// </summary>
-         [Obsolete("GetOption is obsolete. Use the GetOptions() method.")]
+        [Obsolete("GetOption is obsolete. Use the GetOptions() method.")]
         public T GetOption<T>(Extension<FieldOptions, T> extension)
         {
             var value = Proto.Options.GetExtension(extension);
@@ -343,7 +343,7 @@ namespace Google.Protobuf.Reflection
         /// <summary>
         /// Gets a repeated value field option for this descriptor
         /// </summary>
-         [Obsolete("GetOption is obsolete. Use the GetOptions() method.")]
+        [Obsolete("GetOption is obsolete. Use the GetOptions() method.")]
         public RepeatedField<T> GetOption<T>(RepeatedExtension<FieldOptions, T> extension)
         {
             return Proto.Options.GetExtension(extension).Clone();
@@ -382,7 +382,7 @@ namespace Google.Protobuf.Reflection
                     {
                         throw new DescriptorValidationException(this, $"\"{Proto.TypeName}\" is not a message type.");
                     }
-                    messageType = (MessageDescriptor) typeDescriptor;
+                    messageType = (MessageDescriptor)typeDescriptor;
 
                     if (Proto.HasDefaultValue)
                     {
@@ -395,7 +395,7 @@ namespace Google.Protobuf.Reflection
                     {
                         throw new DescriptorValidationException(this, $"\"{Proto.TypeName}\" is not an enum type.");
                     }
-                    enumType = (EnumDescriptor) typeDescriptor;
+                    enumType = (EnumDescriptor)typeDescriptor;
                 }
                 else
                 {
@@ -448,8 +448,7 @@ namespace Google.Protobuf.Reflection
             }
             return IsMap ? new MapFieldAccessor(property, this)
                 : IsRepeated ? new RepeatedFieldAccessor(property, this)
-                : (IFieldAccessor) new SingleFieldAccessor(property, this);
+                : (IFieldAccessor)new SingleFieldAccessor(property, this);
         }
     }
 }
- 

@@ -178,11 +178,11 @@ namespace Google.Protobuf.Reflection
             switch (fieldNumber)
             {
                 case FileDescriptorProto.ServiceFieldNumber:
-                    return (IReadOnlyList<DescriptorBase>) Services;
+                    return (IReadOnlyList<DescriptorBase>)Services;
                 case FileDescriptorProto.MessageTypeFieldNumber:
-                    return (IReadOnlyList<DescriptorBase>) MessageTypes;
+                    return (IReadOnlyList<DescriptorBase>)MessageTypes;
                 case FileDescriptorProto.EnumTypeFieldNumber:
-                    return (IReadOnlyList<DescriptorBase>) EnumTypes;
+                    return (IReadOnlyList<DescriptorBase>)EnumTypes;
                 default:
                     return null;
             }
@@ -423,7 +423,7 @@ namespace Google.Protobuf.Reflection
         {
             ExtensionRegistry registry = new ExtensionRegistry();
             registry.AddRange(GetAllExtensions(dependencies, generatedCodeInfo));
-    
+
             FileDescriptorProto proto;
             try
             {

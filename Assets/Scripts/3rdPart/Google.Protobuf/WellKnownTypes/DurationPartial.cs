@@ -106,7 +106,7 @@ namespace Google.Protobuf.WellKnownTypes
             {
                 long ticks = timeSpan.Ticks;
                 long seconds = ticks / TimeSpan.TicksPerSecond;
-                int nanos = (int) (ticks % TimeSpan.TicksPerSecond) * NanosecondsPerTick;
+                int nanos = (int)(ticks % TimeSpan.TicksPerSecond) * NanosecondsPerTick;
                 return new Duration { Seconds = seconds, Nanos = nanos };
             }
         }

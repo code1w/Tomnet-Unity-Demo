@@ -49,7 +49,7 @@ namespace Google.Protobuf
         internal static JsonToken Null { get { return _null; } }
         internal static JsonToken False { get { return _false; } }
         internal static JsonToken True { get { return _true; } }
-        internal static JsonToken StartObject{ get { return startObject; } }
+        internal static JsonToken StartObject { get { return startObject; } }
         internal static JsonToken EndObject { get { return endObject; } }
         internal static JsonToken StartArray { get { return startArray; } }
         internal static JsonToken EndArray { get { return endArray; } }
@@ -115,7 +115,7 @@ namespace Google.Protobuf
             unchecked
             {
                 int hash = 17;
-                hash = hash * 31 + (int) type;
+                hash = hash * 31 + (int)type;
                 hash = hash * 31 + stringValue == null ? 0 : stringValue.GetHashCode();
                 hash = hash * 31 + numberValue.GetHashCode();
                 return hash;

@@ -4,18 +4,18 @@ using Tom.Util;
 
 namespace Tom.Protocol
 {
-	public interface IProtocolCodec
-	{
-		IoHandler IOHandler
-		{
-			get;
-			set;
-		}
+    public interface IProtocolCodec
+    {
+        IoHandler IOHandler
+        {
+            get;
+            set;
+        }
 
-		void OnPacketRead(ISFSObject packet);
+        void OnPacketRead(ISFSObject packet);
 
-		void OnPacketRead(ByteArray packet);
+        void OnPacketRead(ByteArray packet);
 
-		void OnPacketWrite(IMessage message);
-	}
+        void OnPacketWrite(IMessage message);
+    }
 }

@@ -2,25 +2,25 @@ using System;
 
 namespace Tom.Core.Sockets
 {
-	public class WebSocketError
-	{
-		private Exception _exception;
+    public class WebSocketError
+    {
+        private Exception _exception;
 
-		private string _message;
+        private string _message;
 
-		public Exception Exception => _exception;
+        public Exception Exception => _exception;
 
-		public string Message => _message;
+        public string Message => _message;
 
-		public WebSocketError(string message)
-			: this(message, null)
-		{
-		}
+        public WebSocketError(string message)
+            : this(message, null)
+        {
+        }
 
-		public WebSocketError(string message, Exception exception)
-		{
-			_message = message;
-			_exception = exception;
-		}
-	}
+        public WebSocketError(string message, Exception exception)
+        {
+            _message = message;
+            _exception = exception;
+        }
+    }
 }

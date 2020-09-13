@@ -65,7 +65,7 @@ namespace Google.Protobuf.Reflection
             switch (fieldNumber)
             {
                 case ServiceDescriptorProto.MethodFieldNumber:
-                    return (IReadOnlyList<DescriptorBase>) methods;
+                    return (IReadOnlyList<DescriptorBase>)methods;
                 default:
                     return null;
             }
@@ -133,4 +133,3 @@ namespace Google.Protobuf.Reflection
         }
     }
 }
- 

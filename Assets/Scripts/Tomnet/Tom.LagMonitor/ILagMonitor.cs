@@ -1,20 +1,20 @@
 namespace Tom.Util.LagMonitor
 {
-	public interface ILagMonitor
-	{
-		bool IsRunning
-		{
-			get;
-		}
+    public interface ILagMonitor
+    {
+        bool IsRunning
+        {
+            get;
+        }
 
-		void Start();
+        void Start();
 
-		void Stop();
+        void Stop();
 
-		void Destroy();
+        void Destroy();
 
-		void Execute();
+        void Execute();
 
-		int OnPingPong();
-	}
+        int OnPingPong();
+    }
 }

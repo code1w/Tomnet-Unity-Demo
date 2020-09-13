@@ -126,7 +126,7 @@ namespace Google.Protobuf.Collections
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable) wrapped).GetEnumerator();
+            return ((IEnumerable)wrapped).GetEnumerator();
         }
 
         public override bool Equals(object obj)

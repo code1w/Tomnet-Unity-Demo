@@ -151,7 +151,7 @@ namespace Google.Protobuf.WellKnownTypes
             }
             // Do the arithmetic using DateTime.Ticks, which is always non-negative, making things simpler.
             long secondsSinceBclEpoch = dateTime.Ticks / TimeSpan.TicksPerSecond;
-            int nanoseconds = (int)  (dateTime.Ticks % TimeSpan.TicksPerSecond) * Duration.NanosecondsPerTick;
+            int nanoseconds = (int)(dateTime.Ticks % TimeSpan.TicksPerSecond) * Duration.NanosecondsPerTick;
             return new Timestamp { Seconds = secondsSinceBclEpoch - BclSecondsAtUnixEpoch, Nanos = nanoseconds };
         }
 

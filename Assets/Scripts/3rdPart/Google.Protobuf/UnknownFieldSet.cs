@@ -101,7 +101,7 @@ namespace Google.Protobuf
             }
             UnknownFieldSet otherSet = other as UnknownFieldSet;
             IDictionary<int, UnknownField> otherFields = otherSet.fields;
-            if (fields.Count  != otherFields.Count)
+            if (fields.Count != otherFields.Count)
             {
                 return false;
             }

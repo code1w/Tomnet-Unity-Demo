@@ -3,17 +3,17 @@ using Tom.Util;
 
 namespace Tom.Bitswarm
 {
-	public interface IoHandler
-	{
-		IProtocolCodec Codec
-		{
-			get;
-		}
+    public interface IoHandler
+    {
+        IProtocolCodec Codec
+        {
+            get;
+        }
 
-		void OnDataRead(ByteArray buffer);
+        void OnDataRead(ByteArray buffer);
 
-		void OnDataRead(string jsonData);
+        void OnDataRead(string jsonData);
 
-		void OnDataWrite(IMessage message);
-	}
+        void OnDataWrite(IMessage message);
+    }
 }

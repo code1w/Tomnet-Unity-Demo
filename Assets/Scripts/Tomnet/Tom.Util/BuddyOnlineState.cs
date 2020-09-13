@@ -1,9 +1,9 @@
 namespace Tom.Util
 {
-	public enum BuddyOnlineState
-	{
-		ONLINE,
-		OFFLINE,
-		LEFT_THE_SERVER
-	}
+    public enum BuddyOnlineState
+    {
+        ONLINE,
+        OFFLINE,
+        LEFT_THE_SERVER
+    }
 }

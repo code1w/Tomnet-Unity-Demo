@@ -3,28 +3,28 @@ using Tom.Util;
 
 namespace Tom.Bitswarm.BBox
 {
-	public interface IBBClient : IDispatchable
-	{
-		bool IsConnected
-		{
-			get;
-		}
+    public interface IBBClient : IDispatchable
+    {
+        bool IsConnected
+        {
+            get;
+        }
 
-		string SessionId
-		{
-			get;
-		}
+        string SessionId
+        {
+            get;
+        }
 
-		bool IsDebug
-		{
-			get;
-			set;
-		}
+        bool IsDebug
+        {
+            get;
+            set;
+        }
 
-		void Connect(ConfigData cfg);
+        void Connect(ConfigData cfg);
 
-		void Send(ByteArray binData);
+        void Send(ByteArray binData);
 
-		void Close(string reason);
-	}
+        void Close(string reason);
+    }
 }
