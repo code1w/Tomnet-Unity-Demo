@@ -4,10 +4,6 @@ using System;
 using System.Text;
 using System.Net;
 using Google.Protobuf;
-<<<<<<< HEAD
-=======
-
->>>>>>> f431758ad8dd3789b7c2ce01928627d31aba1577
 using System.Collections.Generic;
 using System.IO;
 using Google.Protobuf.Reflection;
@@ -19,12 +15,7 @@ namespace Tom
     public class PacketParser
     {
 
-<<<<<<< HEAD
-        public void Parse(byte[] data)
-        {
-=======
         public void Parse( byte[] data ) {
->>>>>>> f431758ad8dd3789b7c2ce01928627d31aba1577
             int readIndex = 0;
             int payloadSize = ReadInt32(data, ref readIndex);
             int msgType = ReadInt32(data, ref readIndex);
@@ -61,44 +52,23 @@ namespace Tom
             return copy;
         }
 
-<<<<<<< HEAD
-
-
-        private byte ReadByte(byte[] data, ref int readIndex)
-        {
-            byte[] array = new byte[1];
-            Array.Copy(data, readIndex, array, 0, 1);
-=======
         private byte ReadByte( byte[] data, ref int readIndex) {
             byte []array = new byte[1];
             Array.Copy( data, readIndex, array, 0, 1 );
->>>>>>> f431758ad8dd3789b7c2ce01928627d31aba1577
             readIndex += 1;
             return array[0];
         }
 
-<<<<<<< HEAD
-
-        private byte[] ReadBytes(byte[] data, ref int readIndex, int len)
-        {
-            byte[] array = new byte[len];
-            Array.Copy(data, readIndex, array, 0, len);
-=======
         private byte[] ReadBytes( byte[] data, ref int readIndex, int len ) 
         {
             byte[]array = new byte[len];
             Array.Copy( data, readIndex, array, 0, len );
->>>>>>> f431758ad8dd3789b7c2ce01928627d31aba1577
             readIndex += len;
             return array;
         }
 
 
-<<<<<<< HEAD
-        private Int16 ReadUInt16(byte[] data, int readIndex)
-=======
         private Int16 ReadUInt16( byte[] data, int readIndex) 
->>>>>>> f431758ad8dd3789b7c2ce01928627d31aba1577
         {
             byte[] array = new byte[2];
             Array.Copy(data, readIndex, array, 0, 2);
@@ -107,28 +77,16 @@ namespace Tom
             return result;
         }
 
-<<<<<<< HEAD
-        private int ReadInt32(byte[] data, ref int readIndex)
-        {
-            byte[] array = new byte[4];
-            Array.Copy(data, readIndex, array, 0, 4);
-            int result = IPAddress.NetworkToHostOrder(BitConverter.ToInt32(array, 0));
-=======
         private int ReadInt32( byte[] data, ref int readIndex) 
         {
             byte[] array = new byte[4];
             Array.Copy( data, readIndex, array, 0, 4 );
             int result = IPAddress.NetworkToHostOrder(BitConverter.ToInt32( array, 0 ));
->>>>>>> f431758ad8dd3789b7c2ce01928627d31aba1577
             readIndex += 4;
             return result;
         }
 
-<<<<<<< HEAD
-        private string ReadString(byte[] data, ref int readIndex, int len)
-=======
         private string ReadString( byte[] data, ref int readIndex, int len ) 
->>>>>>> f431758ad8dd3789b7c2ce01928627d31aba1577
         {
             byte[] array = new byte[len];
             Array.Copy(data, readIndex, array, 0, len);

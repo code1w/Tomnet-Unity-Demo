@@ -8,16 +8,8 @@ using System.Linq;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using System.Net;
-<<<<<<< HEAD
-namespace Tom
-{
-    public class PacketBuilder
-    {
-
-=======
 namespace Tom {
     public class PacketBuilder {
->>>>>>> f431758ad8dd3789b7c2ce01928627d31aba1577
         public byte[] ProtobufPacket(Google.Protobuf.IMessage message)
         {
             int writeIndex = 0;
