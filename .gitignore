@@ -3,6 +3,6 @@
 build
 bin
 obj
-*.csproj
-*.sln
+Assembly-CSharp.csproj
+Tomnet-Unity-Demo.sln
 Library
