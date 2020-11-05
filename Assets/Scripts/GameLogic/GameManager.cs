@@ -2,13 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
-using Tom;
-using Tom.Core;
-using Tom.Entities;
-using Tom.Entities.Data;
-using Tom.Entities.Variables;
-using Tom.Requests;
-using Tom.Logging;
+using TomNet;
+using TomNet.Core;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -20,15 +16,16 @@ public class GameManager : MonoBehaviour
     public GameObject[] playerModels;
     public Material[] playerMaterials;
 
+
     //----------------------------------------------------------
     // Private properties
     //----------------------------------------------------------
 
-    private TomOrange sfs;
+    private Doraemon sfs;
 
     private GameObject localPlayer;
     private PlayerController localPlayerController;
-    private Dictionary<SFSUser, GameObject> remotePlayers = new Dictionary<SFSUser, GameObject>();
+    //private Dictionary<SFSUser, GameObject> remotePlayers = new Dictionary<SFSUser, GameObject>();
 
     //----------------------------------------------------------
     // Unity calback methods
@@ -46,9 +43,9 @@ public class GameManager : MonoBehaviour
         sfs = SmartFoxConnection.Connection;
 
         // Register callback delegates
-        sfs.AddEventListener(SFSEvent.CONNECTION_LOST, OnConnectionLost);
-        sfs.AddEventListener(SFSEvent.USER_VARIABLES_UPDATE, OnUserVariableUpdate);
-        sfs.AddEventListener(SFSEvent.PROXIMITY_LIST_UPDATE, OnProximityListUpdate);
+        sfs.AddEventListener(DoraemonEvent.CONNECTION_LOST, OnConnectionLost);
+        sfs.AddEventListener(DoraemonEvent.USER_VARIABLES_UPDATE, OnUserVariableUpdate);
+        sfs.AddEventListener(DoraemonEvent.PROXIMITY_LIST_UPDATE, OnProximityListUpdate);
 
         // Get random avatar and color and spawn player
         int numModel = UnityEngine.Random.Range(0, playerModels.Length);
@@ -78,6 +75,8 @@ public class GameManager : MonoBehaviour
 			 */
             if (localPlayer != null && localPlayerController != null && localPlayerController.MovementDirty)
             {
+                /*
+                 * TODO
                 List<UserVariable> userVariables = new List<UserVariable>();
                 userVariables.Add(new SFSUserVariable("x", (double)localPlayer.transform.position.x));
                 //userVariables.Add(new SFSUserVariable("y", (double)localPlayer.transform.position.y));
@@ -85,6 +84,7 @@ public class GameManager : MonoBehaviour
                 userVariables.Add(new SFSUserVariable("rot", (double)localPlayer.transform.rotation.eulerAngles.y));
                 sfs.Send(new SetUserVariablesRequest(userVariables));
                 localPlayerController.MovementDirty = false;
+                 */
             }
         }
     }
@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
 	 */
     public void OnProximityListUpdate(BaseEvent evt)
     {
+        /*
+         * TODO
         var addedUsers = (List<User>)evt.Params["addedUsers"];
         var removedUsers = (List<User>)evt.Params["removedUsers"];
 
@@ -119,6 +121,7 @@ public class GameManager : MonoBehaviour
         {
             RemoveRemotePlayer((SFSUser)user);
         }
+         */
     }
 
     public void OnConnectionLost(BaseEvent evt)
@@ -136,6 +139,8 @@ public class GameManager : MonoBehaviour
     {
         List<string> changedVars = (List<string>)evt.Params["changedVars"];
 
+        /*
+         * TODO
         SFSUser user = (SFSUser)evt.Params["user"];
 
         if (user == sfs.MySelf) return;
@@ -170,6 +175,7 @@ public class GameManager : MonoBehaviour
         {
             remotePlayers[user].GetComponentInChildren<Renderer>().material = playerMaterials[user.GetVariable("mat").GetIntValue()];
         }
+         */
     }
 
 
@@ -179,21 +185,22 @@ public class GameManager : MonoBehaviour
 
     public void Disconnect()
     {
-        sfs.Disconnect();
+        //sfs.Disconnect();
     }
 
     public void ChangePlayerMaterial(int numMaterial)
     {
         localPlayer.GetComponentInChildren<Renderer>().material = playerMaterials[numMaterial];
-
+        /*
         List<UserVariable> userVariables = new List<UserVariable>();
         userVariables.Add(new SFSUserVariable("mat", numMaterial));
         sfs.Send(new SetUserVariablesRequest(userVariables));
+         */
     }
 
     public void ChangePlayerModel(int numModel)
     {
-        SpawnLocalPlayer(numModel, sfs.MySelf.GetVariable("mat").GetIntValue());
+        //SpawnLocalPlayer(numModel, sfs.MySelf.GetVariable("mat").GetIntValue());
     }
 
     //----------------------------------------------------------
@@ -220,22 +227,24 @@ public class GameManager : MonoBehaviour
         }
 
         // Lets spawn our local player model
-        localPlayer = GameObject.Instantiate(playerModels[numModel]) as GameObject;
+        localPlayer = GameObject.Instantiate(playerModels[3]) as GameObject;
         localPlayer.transform.position = pos;
         localPlayer.transform.rotation = rot;
 
         // Assign starting material
-        localPlayer.GetComponentInChildren<Renderer>().material = playerMaterials[numMaterial];
+        localPlayer.GetComponentInChildren<Renderer>().material = playerMaterials[4];
 
         // Since this is the local player, lets add a controller and fix the camera
         localPlayer.AddComponent<PlayerController>();
         localPlayerController = localPlayer.GetComponent<PlayerController>();
-        localPlayer.GetComponentInChildren<TextMesh>().text = sfs.MySelf.Name;
+        //localPlayer.GetComponentInChildren<TextMesh>().text = "zxb";
         Camera.main.transform.parent = localPlayer.transform;
 
         // Lets set the model, material and position and tell the others about it
         // NOTE: we have commented the UserVariable relative to the Y Axis because in this example the Y position is fixed (Y = 1.0)
         // In case your game allows moving on all axis we should transmit all positions
+        /*
+         * TODO
         List<UserVariable> userVariables = new List<UserVariable>();
 
         userVariables.Add(new SFSUserVariable("x", (double)localPlayer.transform.position.x));
@@ -247,8 +256,11 @@ public class GameManager : MonoBehaviour
 
         // Send request
         sfs.Send(new SetUserVariablesRequest(userVariables));
+         */
     }
 
+    /*
+     * TOOD
     private void SpawnRemotePlayer(SFSUser user, int numModel, int numMaterial, Vector3 pos, Quaternion rot)
     {
         // See if there already exists a model so we can destroy it first
@@ -281,4 +293,5 @@ public class GameManager : MonoBehaviour
             remotePlayers.Remove(user);
         }
     }
+     */
 }

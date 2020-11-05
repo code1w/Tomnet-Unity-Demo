@@ -3,13 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-using Tom.Core;
-using Tom.Entities;
-using Tom.Entities.Data;
-using Tom.Entities.Variables;
-using Tom.Requests;
-using Tom.Logging;
-using Tom;
+//using Tom.Core;
+//using Tom.Entities;
+//using Tom.Entities.Data;
+//using Tom.Entities.Variables;
+//using Tom.Requests;
+//using Tom.Logging;
+//using Tom;
 
 
 public class GameUI : MonoBehaviour

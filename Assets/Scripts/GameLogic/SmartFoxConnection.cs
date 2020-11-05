@@ -1,5 +1,5 @@
 using UnityEngine;
-using Tom;
+using TomNet;
 
 /**
  * Singleton class with static fields to hold a reference to SmartFoxServer connection.
@@ -8,9 +8,9 @@ using Tom;
 public class SmartFoxConnection : MonoBehaviour
 {
     private static SmartFoxConnection mInstance;
-    private static TomOrange sfs;
+    private static Doraemon sfs;
 
-    public static TomOrange Connection
+    public static Doraemon Connection
     {
         get
         {
@@ -44,7 +44,7 @@ public class SmartFoxConnection : MonoBehaviour
     {
         if (sfs.IsConnected)
         {
-            sfs.Disconnect();
+            //sfs.Disconnect();
         }
     }
 }

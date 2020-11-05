@@ -4,14 +4,9 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Tom;
-using Tom.Logging;
-using Tom.Util;
-using Tom.Core;
-using Tom.Entities;
-using Tom.Entities.Data;
-using Tom.Requests;
-using Tom.Requests.MMO;
+using TomNet;
+using TomNet.Core;
+
 using Google.Protobuf;
 
 
@@ -22,18 +17,11 @@ public class ConnectionUI : MonoBehaviour
     // Editor public properties
     //----------------------------------------------------------
 
-    [Tooltip("IP address or domain name of the SmartFoxServer 2X instance")]
+    [Tooltip("IP address or domain name of the TomNetServer")]
     public string Host = "127.0.0.1";
 
-    [Tooltip("TCP port listened by the SmartFoxServer 2X instance; used for regular socket connection in all builds except WebGL")]
+    [Tooltip("TCP port listened by the TomNetServer ")]
     public int TcpPort = 8888;
-
-    [Tooltip("WebSocket port listened by the SmartFoxServer 2X instance; used for in WebGL build only")]
-    public int WSPort = 8080;
-
-    [Tooltip("Name of the SmartFoxServer 2X Zone to join")]
-    public string Zone = "BasicExamples";
-
     //----------------------------------------------------------
     // UI elements
     //----------------------------------------------------------
@@ -46,7 +34,7 @@ public class ConnectionUI : MonoBehaviour
     // Private properties
     //----------------------------------------------------------
 
-    private TomOrange doraemon;
+    private Doraemon doraemon;
 
     //----------------------------------------------------------
     // Unity calback methods
@@ -72,32 +60,17 @@ public class ConnectionUI : MonoBehaviour
     {
         enableLoginUI(false);
 
-        // Set connection parameters
-        ConfigData cfg = new ConfigData();
-        cfg.Host = Host;
-#if !UNITY_WEBGL
-        cfg.Port = TcpPort;
-#else
-		cfg.Port = WSPort;
-#endif
-        cfg.Zone = Zone;
 
-        // Initialize SFS2X client and add listeners
-#if !UNITY_WEBGL
-        doraemon = new TomOrange();
-#else
-		doraemon = new SmartFox(UseWebSocket.WS_BIN);
-#endif
-
-        doraemon.AddEventListener(SFSEvent.CONNECTION, OnConnection);
-        doraemon.AddEventListener(SFSEvent.CONNECTION_LOST, OnConnectionLost);
-        doraemon.AddEventListener(SFSEvent.LOGIN, OnLogin);
-        doraemon.AddEventListener(SFSEvent.LOGIN_ERROR, OnLoginError);
-        doraemon.AddEventListener(SFSEvent.ROOM_JOIN, OnRoomJoin);
-        doraemon.AddEventListener(SFSEvent.ROOM_JOIN_ERROR, OnRoomJoinError);
+        doraemon = new Doraemon();
+        doraemon.AddEventListener(DoraemonEvent.CONNECTION, OnConnection);
+        doraemon.AddEventListener(DoraemonEvent.CONNECTION_LOST, OnConnectionLost);
+        doraemon.AddEventListener(DoraemonEvent.LOGIN, OnLogin);
+        doraemon.AddEventListener(DoraemonEvent.LOGIN_ERROR, OnLoginError);
+        doraemon.AddEventListener(DoraemonEvent.ROOM_JOIN, OnRoomJoin);
+        doraemon.AddEventListener(DoraemonEvent.ROOM_JOIN_ERROR, OnRoomJoinError);
 
         // Connect to SFS2X
-        doraemon.Connect(cfg);
+        doraemon.Connect(Host, TcpPort);
     }
 
     //----------------------------------------------------------
@@ -131,11 +104,12 @@ public class ConnectionUI : MonoBehaviour
             // Save reference to the SmartFox instance in a static field, to share it among different scenes
             SmartFoxConnection.Connection = doraemon;
 
-            Debug.Log("SFS2X API version: " + doraemon.Version);
-            Debug.Log("Connection mode is: " + doraemon.ConnectionMode);
+            //Debug.Log("SFS2X API version: " + doraemon.Version);
+            //Debug.Log("Connection mode is: " + doraemon.ConnectionMode);
 
             // Login
-            doraemon.Send(new Tom.Requests.LoginRequest(nameInput.text));
+            //doraemon.Send(new Tom.Requests.LoginRequest(nameInput.text));
+            SceneManager.LoadScene("Game");
         }
         else
         {
@@ -154,7 +128,7 @@ public class ConnectionUI : MonoBehaviour
 
         string reason = (string)evt.Params["reason"];
 
-        if (reason != ClientDisconnectionReason.MANUAL)
+        //if (reason != ClientDisconnectionReason.MANUAL)
         {
             // Show error message
             errorText.text = "Connection was lost; reason is: " + reason;
@@ -166,25 +140,25 @@ public class ConnectionUI : MonoBehaviour
         string roomName = "UnityMMODemo";
 
         // We either create the Game Room or join it if it exists already
-        if (doraemon.RoomManager.ContainsRoom(roomName))
+        //if (doraemon.RoomManager.ContainsRoom(roomName))
         {
-            doraemon.Send(new JoinRoomRequest(roomName));
+           // doraemon.Send(new JoinRoomRequest(roomName));
         }
-        else
+        //else
         {
-            MMORoomSettings settings = new MMORoomSettings(roomName);
-            settings.DefaultAOI = new Vec3D(25f, 1f, 25f);
-            settings.MapLimits = new MapLimits(new Vec3D(-100f, 1f, -100f), new Vec3D(100f, 1f, 100f));
-            settings.MaxUsers = 100;
-            settings.Extension = new RoomExtension("MMORoomDemo", "sfs2x.extension.mmo.MMORoomDemoExtension");
-            doraemon.Send(new CreateRoomRequest(settings, true));
+            //MMORoomSettings settings = new MMORoomSettings(roomName);
+            //settings.DefaultAOI = new Vec3D(25f, 1f, 25f);
+            //settings.MapLimits = new MapLimits(new Vec3D(-100f, 1f, -100f), new Vec3D(100f, 1f, 100f));
+            //settings.MaxUsers = 100;
+            //settings.Extension = new RoomExtension("MMORoomDemo", "sfs2x.extension.mmo.MMORoomDemoExtension");
+            //doraemon.Send(new CreateRoomRequest(settings, true));
         }
     }
 
     private void OnLoginError(BaseEvent evt)
     {
         // Disconnect
-        doraemon.Disconnect();
+        //doraemon.Disconnect();
 
         // Remove SFS2X listeners and re-enable interface
         reset();
