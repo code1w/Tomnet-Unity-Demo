@@ -16,7 +16,7 @@ samurai 2 animations player_run_evade_attack.max
 
 87-90 attack right return
 
-95-125 idle stoj s meèem
+95-125 idle sto
 
 130 bare hands stand static
 
@@ -24,9 +24,9 @@ samurai 2 animations player_run_evade_attack.max
 
 160-175 evade front
 
-180-209 walk cycle bez meèe
+180-209 walk cycle bez 
 
-215-248 walk cycle s meèem
+215-248 walk cycle s 
 
 260-290 idle stoj bez meèe
 

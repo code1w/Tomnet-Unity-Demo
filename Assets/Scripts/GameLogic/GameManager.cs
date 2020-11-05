@@ -222,7 +222,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            pos = new Vector3(0, 1, 0);
+            pos = new Vector3(0, 0, 0);
             rot = Quaternion.identity;
         }
 
@@ -232,7 +232,7 @@ public class GameManager : MonoBehaviour
         localPlayer.transform.rotation = rot;
 
         // Assign starting material
-        localPlayer.GetComponentInChildren<Renderer>().material = playerMaterials[4];
+        //localPlayer.GetComponentInChildren<Renderer>().material = playerMaterials[4];
 
         // Since this is the local player, lets add a controller and fix the camera
         localPlayer.AddComponent<PlayerController>();
