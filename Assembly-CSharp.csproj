@@ -151,9 +151,16 @@
     <Compile Include="Assets\Scripts\3rdPart\Google.Protobuf\WellKnownTypes\Wrappers.cs" />
     <Compile Include="Assets\Scripts\3rdPart\Google.Protobuf\WellKnownTypes\WrappersPartial.cs" />
     <Compile Include="Assets\Scripts\3rdPart\Google.Protobuf\WireFormat.cs" />
+    <Compile Include="Assets\Scripts\EnumFlags\EnumFlagsAttribute.cs" />
     <Compile Include="Assets\Scripts\GameLogic\ConnectionUI.cs" />
     <Compile Include="Assets\Scripts\GameLogic\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameLogic\GameUI.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\Joystick\Example\Common\Scripts\ConfigurationDemo.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\Joystick\Example\FirstPersonSolution\FirstPersonSolution.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\Joystick\Example\ThirdPersonSolution\ThirdPersonSolution.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\Joystick\Example\TransformMoveSolution\TransformMoveSolution.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\Joystick\Scripts\DirectionArrow.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\Joystick\Scripts\Joystick.cs" />
     <Compile Include="Assets\Scripts\GameLogic\PlayerController.cs" />
     <Compile Include="Assets\Scripts\GameLogic\SimpleRemoteInterpolation.cs" />
     <Compile Include="Assets\Scripts\GameLogic\SmartFoxConnection.cs" />

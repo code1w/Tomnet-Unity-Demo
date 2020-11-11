@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TomNet;
 using TomNet.Core;
-
+using zFrame.Example;
 
 public class GameManager : MonoBehaviour
 {
@@ -227,18 +227,18 @@ public class GameManager : MonoBehaviour
         }
 
         // Lets spawn our local player model
-        localPlayer = GameObject.Instantiate(playerModels[3]) as GameObject;
-        localPlayer.transform.position = pos;
-        localPlayer.transform.rotation = rot;
+        //localPlayer = GameObject.Instantiate(playerModels[3]) as GameObject;
+        //localPlayer.transform.position = pos;
+        //localPlayer.transform.rotation = rot;
 
         // Assign starting material
         //localPlayer.GetComponentInChildren<Renderer>().material = playerMaterials[4];
 
         // Since this is the local player, lets add a controller and fix the camera
-        localPlayer.AddComponent<PlayerController>();
-        localPlayerController = localPlayer.GetComponent<PlayerController>();
+        //localPlayer.AddComponent<ThirdPersonSolution>();
+        //localPlayerController = localPlayer.GetComponent<PlayerController>();
         //localPlayer.GetComponentInChildren<TextMesh>().text = "zxb";
-        Camera.main.transform.parent = localPlayer.transform;
+       // Camera.main.transform.parent = localPlayer.transform;
 
         // Lets set the model, material and position and tell the others about it
         // NOTE: we have commented the UserVariable relative to the Y Axis because in this example the Y position is fixed (Y = 1.0)
